@@ -19,7 +19,7 @@
         "pk": 3,
         "model": "products.category",
         "fields": {
-            "name": "tealight_candles",
+            "name": "decorative_candles",
             "friendly_name": "Decorative Candles"
         }
     },
@@ -35,7 +35,7 @@
         "pk": 5,
         "model": "products.category",
         "fields": {
-            "name": "taper_candles",
+            "name": "deals",
             "friendly_name": "Deals"
         }
     },

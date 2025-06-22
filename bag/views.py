@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 
 def view_bag(request):
@@ -13,10 +13,10 @@ def add_to_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
-    scent = None
     if 'product_size' in request.POST:
         size = request.POST['product_size']
 
+    scent = None
     if 'product_scent' in request.POST:
         scent = request.POST['product_scent']
 
@@ -26,6 +26,7 @@ def add_to_bag(request, item_id):
     options = []
     if size:
         options.append(f'size_{size}')
+
     if scent:
         options.append(f'scent_{scent}')
 
@@ -47,3 +48,75 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(redirect_url)
+
+def adjust_bag(request, item_id):
+    """
+    Adjust the quantity of the specified product (and its options) to the new amount.
+    """
+    quantity = int(request.POST.get('quantity'))
+
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
+
+    scent = None
+    if 'product_scent' in request.POST:
+        scent = request.POST['product_scent']
+
+    bag = request.session.get('bag', {})
+
+    # Construct the unique option key based on size and scent
+    options = []
+    if size and size != "None":
+        options.append(f'size_{size}')
+    if scent and scent != "None":
+        options.append(f'scent_{scent}')
+
+    if not options:
+        options_key = 'no_options'
+    else:
+        options_key = '_'.join(options)
+
+    if item_id in bag and isinstance(bag[item_id], dict) and 'items_by_options' in bag[item_id]:
+        if options_key in bag[item_id]['items_by_options']:
+            if quantity > 0:
+                bag[item_id]['items_by_options'][options_key] = quantity
+            else:
+                # Remove from the bag if quantity is 0 or less
+                del bag[item_id]['items_by_options'][options_key]
+                # If no more options for this item_id, remove the item_id itself
+                if not bag[item_id]['items_by_options']:
+                    bag.pop(item_id)
+
+    request.session['bag'] = bag
+    return redirect(reverse('view_bag'))
+
+
+def remove_from_bag(request, item_id):
+    """
+    Remove the specified product (and its options) from the bag.
+    """
+    
+    size = request.POST.get('size')
+    scent = request.POST.get('scent')
+
+    bag = request.session.get('bag', {})
+
+    options = []
+    if size and size != "None":
+        options.append(f'size_{size}')
+    if scent and scent != "None":
+        options.append(f'scent_{scent}')
+
+    if not options:
+        options_key = 'no_options'
+    else:
+        options_key = '_'.join(options)
+
+    if options_key == 'no_options':
+        bag.pop(item_id)
+    else:
+        del bag[item_id]['items_by_options'][options_key]
+
+    request.session['bag'] = bag
+    return HttpResponse(status=200)

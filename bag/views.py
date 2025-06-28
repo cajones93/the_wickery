@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+
+from products.models import Product
 
 
 def view_bag(request):
@@ -9,6 +12,8 @@ def view_bag(request):
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
+
+    product = Product.objects.get(pk=item_id)
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -44,14 +49,18 @@ def add_to_bag(request, item_id):
         # create string to track options
         options_key = '_'.join(options)
 
-    if item_id not in bag or not isinstance(bag[item_id], dict) or 'items_by_options' not in bag[item_id]:
+
+    # Add new item to bag and initialise to dictionary
+    if item_id not in bag:
         bag[item_id] = {'items_by_options': {}}
 
-    # Now, add or update the quantity for the specific option_key
+    # Add or update the quantity for the specific option_key
     if options_key in bag[item_id]['items_by_options']:
         bag[item_id]['items_by_options'][options_key] += quantity
     else:
         bag[item_id]['items_by_options'][options_key] = quantity
+        messages.success(request, f'Added {product.name} to your bag')
+
 
     print(f'Options added: {options_key}')
     request.session['bag'] = bag

@@ -1,0 +1,42 @@
+[
+    {
+        "pk": 1,
+        "model": "products.scent",
+        "fields": {
+            "name": "vanilla",
+            "friendly_name": "Vanilla"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.scent",
+        "fields": {
+            "name": "lavender",
+            "friendly_name": "Lavender"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.scent",
+        "fields": {
+            "name": "sandalwood",
+            "friendly_name": "Sandalwood"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.scent",
+        "fields": {
+            "name": "cinnamon",
+            "friendly_name": "Cinnamon"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.scent",
+        "fields": {
+            "name": "ocean_breeze",
+            "friendly_name": "Ocean Breeze"
+        }
+    }
+]

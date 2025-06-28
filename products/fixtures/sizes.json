@@ -1,0 +1,38 @@
+[
+    {
+        "pk": 1,
+        "model": "products.candlesize",
+        "fields": {
+            "name": "s",
+            "friendly_name": "Small (4oz)",
+            "price_modifier": 0.80
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.candlesize",
+        "fields": {
+            "name": "m",
+            "friendly_name": "Medium (8oz)",
+            "price_modifier": 1.00
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.candlesize",
+        "fields": {
+            "name": "l",
+            "friendly_name": "Large (12oz)",
+            "price_modifier": 1.25
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.candlesize",
+        "fields": {
+            "name": "xl",
+            "friendly_name": "Extra Large (16oz)",
+            "price_modifier": 1.50
+        }
+    }
+]

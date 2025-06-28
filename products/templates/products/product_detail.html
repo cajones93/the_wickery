@@ -49,9 +49,9 @@
                                 <div class="col-12 mt-3">
                                     <p><strong>Wax:</strong></p>
                                     <select class="form-control rounded-0 w-50" name="product_wax" id='id_product_wax'>
-                                        <option value="paraffin">Paraffin Wax</option>
-                                        <option value="soy">Soy Wax</option>
-                                        <option value="beeswax">Beeswax</option>
+                                            {% for wax in product.available_wax_types.all %}
+                                                <option value="{{wax.pk}}">{{wax.friendly_name}}</option>
+                                            {% endfor %}
                                     </select>
                                 </div>
                             <!-- Sizes -->
@@ -61,10 +61,9 @@
                                 <div class="col-12">
                                     <p><strong>Size:</strong></p>
                                     <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
-                                        <option value="s">Small (4oz)</option>
-                                        <option value="m" selected>Medium (8oz)</option>
-                                        <option value="l">Large (12oz)</option>
-                                        <option value="xl">Extra Large (16oz)</option>
+                                            {% for size in product.available_sizes.all %}
+                                                <option value="{{size.pk}}">{{size.friendly_name}}</option>
+                                            {% endfor %}
                                     </select>
                                 </div>
                             {% endif %}
@@ -73,11 +72,9 @@
                                     <div class="col-12 mt-3">
                                         <p><strong>Scent:</strong></p>
                                         <select class="form-control rounded-0 w-50" name="product_scent" id='id_product_scent'>
-                                            <option value="vanilla">Vanilla</option>
-                                            <option value="lavender">Lavender</option>
-                                            <option value="sandalwood">Sandalwood</option>
-                                            <option value="cinnamon">Cinnamon</option>
-                                            <option value="ocean_breeze">Ocean Breeze</option>
+                                            {% for scent in product.available_scents.all %}
+                                                <option value="{{scent.pk}}">{{scent.friendly_name}}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                 {% endif %}

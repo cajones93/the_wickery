@@ -1,0 +1,29 @@
+[
+    {
+        "pk": 1,
+        "model": "products.waxtype",
+        "fields": {
+            "name": "paraffin_wax",
+            "friendly_name": "Paraffin Wax",
+            "price_modifier": 1.00
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.waxtype",
+        "fields": {
+            "name": "soy_wax",
+            "friendly_name": "Soy Wax",
+            "price_modifier": 1.15
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.waxtype",
+        "fields": {
+            "name": "beeswax",
+            "friendly_name": "Beeswax",
+            "price_modifier": 1.25
+        }
+    }
+]

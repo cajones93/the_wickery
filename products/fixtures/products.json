@@ -12,7 +12,10 @@
             "image_url": "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/130194072_1083577392095834_6379852589069655427_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=hyv4dUFeSG4Q7kNvwE9e-UX&_nc_oc=Adk-C3uGTfQU_Ca3J_RV0BS_m--lgBBNw_7SmI-jbC8ev8nN6o5kpqYXx8EsHT0gMb3Y8yv7FgKKl-A_36NJbcBy&_nc_zt=23&_nc_ht=scontent.fbrs4-1.fna&_nc_gid=a_GAOetX6OGIZiQ7KGytow&oh=00_AfM23awMRZgxomDy0AOZ3KyC6i6RQW1otVQoVT8St8L3Nw&oe=687E0FA9",
             "image": "CANDLE001.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -28,7 +31,10 @@
             "image_url": "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/93293076_702521896954880_8072584937720512512_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=GYMq296tuscQ7kNvwGwpSMI&_nc_oc=Adlv6FISp9IcFBbVKXw2QRobcEIvePP-JR2VsXq7elLR84zUaFRFj3ctPyQaeHitCtY5J8cwKyowkUtvQ1U7__Lw&_nc_zt=23&_nc_ht=scontent.fbrs4-1.fna&_nc_gid=z9c0ST2pSdqBVi6rU4dhiA&oh=00_AfMOQ5EukBN4qTf3wqvc02zp73yfuDvvbH3vLAndlj78Yw&oe=687E1D3C",
             "image": "CANDLE002.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -44,7 +50,10 @@
             "image_url": "https://scontent.fbrs4-2.fna.fbcdn.net/v/t1.6435-9/93365963_700809113792825_6181520286219763712_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=o7XB7FJeO1kQ7kNvwHaUnlA&_nc_oc=AdmipUp0NYRBDU0uc6wyRfZ111xEUtN9dZZrdvqtxIHd9kF4Vi0u86sPq96dmtwBKExjllm1QKOnRrF0uQza-HNz&_nc_zt=23&_nc_ht=scontent.fbrs4-2.fna&_nc_gid=RVNdKj1A2Ji7YnGVprhKTA&oh=00_AfNWN3bJGgFQhtIuRdgnFhuHwSuOMFIAzcCuwJyeSesF3w&oe=687E03E7",
             "image": "CANDLE003.webp",
             "has_sizes": false,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": []
         }
     },
     {
@@ -60,7 +69,10 @@
             "image_url": "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/92467356_696701744203562_1484587314519736320_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=uY1ABTkAntwQ7kNvwHPXxBK&_nc_oc=AdmD41j-yDAmedLJKx2lnKOj86dW17NZFuLn3Y2OAcw-qiysSHYRRnsBu5X1J9qNZTM8svj_Y_IDBOr4kTsLPOJ5&_nc_zt=23&_nc_ht=scontent.fbrs4-1.fna&_nc_gid=bmTuJD0xF92PHc4YQClJeA&oh=00_AfOTn3rUF9fF2-WsAV_NAxL6dxL9V_W9XYeLDJbn56XtNQ&oe=687DFDA4",
             "image": "CANDLE004.webp",
             "has_sizes": false,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": []
         }
     },
     {
@@ -76,7 +88,10 @@
             "image_url": "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/79502587_812898182497091_2544341688462082048_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=bSl8BfdipW0Q7kNvwHv3gnt&_nc_oc=Adl-lTcU3HaSdqz_12VuKg96PJZTYLRHwPIFaMb_H5ZoOTHPR9H-TrXD4knNp3921VS2VnayZMUiGklDgleW6E_p&_nc_zt=23&_nc_ht=scontent.fbrs4-1.fna&_nc_gid=cGKzXO-Vpy5vMB78W7cGhg&oh=00_AfMAQ10aUL1jUki5FLI7TtUieX6XCKJ6a3QXaSiTZZPsaw&oe=687E06CF",
             "image": "CANDLE005.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -92,7 +107,10 @@
             "image_url": "https://scontent.fbrs4-2.fna.fbcdn.net/v/t1.6435-9/80395534_616067238933680_6474507226982645760_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=btcOUTS0_X8Q7kNvwH3ip76&_nc_oc=AdneyAeENN5pJG60398jxxBd17yt_NXKr8LOnUVYxxq2MK2Fx2y8kCE0FOWJnapfyF4mehXuE7axWos7920D8uEK&_nc_zt=23&_nc_ht=scontent.fbrs4-2.fna&_nc_gid=3CQ9q_A2a0qVp6ww16lqaw&oh=00_AfOV5pvFeSosoip0eqSSb6h6fW-0imDfLU5LnS7u5bNvRw&oe=687E1CD0",
             "image": "CANDLE006.webp",
             "has_sizes": false,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": []
         }
     },
     {
@@ -108,7 +126,10 @@
             "image_url": "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/78644301_607205019819902_1661961707133599744_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=1cAb-PWrEA4Q7kNvwFAHmEo&_nc_oc=Adk2BJ9F8QzfiHhvYxn8Jh4MMfxfxBHIZNv_7OC5hbl3fb6IhPTbina8oPVgFYDtO9YFoNOdADwuT0vs9I4IAktM&_nc_zt=23&_nc_ht=scontent.fbrs4-1.fna&_nc_gid=gmCr7m1JyH9I93ZDgaiPHA&oh=00_AfN-5dMoeW23561J7rvEuz4JoA3YW9z5GIshRK9lBj8v1Q&oe=687E1FA7",
             "image": "CANDLE007.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -124,7 +145,10 @@
             "image_url": "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/78756793_607098786497192_5423741927533051904_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=cv9samzzSrwQ7kNvwGi24nB&_nc_oc=AdmXyvL2HzNmEpHuuMc4X-igGgnLfcOg1yozs7FPKDwD_ds98sxpLQ8aGIIqn_IIobRQI67PMMO17nz-sX5eZPxQ&_nc_zt=23&_nc_ht=scontent.fbrs4-1.fna&_nc_gid=YFmUnQwNVBl5yhfoQJgK6g&oh=00_AfNajRnNcDyeInROluN299pVPMQ861RDHlPSqZvG48uxLw&oe=687E1597",
             "image": "CANDLE008.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -140,7 +164,10 @@
             "image_url": "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/41595818_531650757288503_9135388824342364160_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=3a1ebe&_nc_ohc=oYhUFrHjJKAQ7kNvwH7gXil&_nc_oc=AdmJQak1Mw-hcFUOZbg7LwkP1QKupgWQWcNKwfZcSeuI0-XOMNuU0CXLlC8WJrcix_vsvYsyjxzTaWQJld7dy48X&_nc_zt=23&_nc_ht=scontent.fbrs4-1.fna&_nc_gid=YA8o4MuguhlE7itTCf1J3A&oh=00_AfO0DRZ-0SVrYj4dk81XtPjTk2oxM26YkPQbZJCiwUXnNg&oe=687E21F0",
             "image": "CANDLE009.webp",
             "has_sizes": true,
-            "has_scents": false
+            "has_scents": false,
+            "available_scents": [],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -156,7 +183,10 @@
             "image_url": "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/40971438_527484464371799_7631844920042455040_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=3a1ebe&_nc_ohc=3kJhyBunGZ4Q7kNvwFFsV3i&_nc_oc=Adnz8awUbpSJ2FdSvCYFujl9qpsKcHlEqJDotLfgSst8w1TudCXe1cbxCKQ19Jy5UeVutMIFO0mS1WbKfW5Hi6ZZ&_nc_zt=23&_nc_ht=scontent.fbrs4-1.fna&_nc_gid=3uRCzpTcKepE9Uy3Ct787g&oh=00_AfOuiaHjtJCralwWRJS15iqWAtjQAzWIX2t75WUBUU-FOw&oe=687DF069",
             "image": "CANDLE010.webp",
             "has_sizes": false,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": []
         }
     },
     {
@@ -172,7 +202,10 @@
             "image_url": "https://scontent.fbrs4-1.fna.fbcdn.net/v/t1.6435-9/40192401_523172354803010_3003345586414944256_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=0b6b33&_nc_ohc=8eHQrDXkh8cQ7kNvwHfq5FT&_nc_oc=Adl6e9qa6ERRrEEgCrXuxh_eeizGdsrFtSnwDc9A2TAfuMf6PcxX8PULC0NCVxCc3uLMZtv2QCC-t_iv1lWk9JMl&_nc_zt=23&_nc_ht=scontent.fbrs4-1.fna&_nc_gid=ExgzQRzpIjoc-Jw6sus4ew&oh=00_AfNmxYfi1QTPCPOXys97ZcBue4xGzOGu3cSVFyhgw2WQNA&oe=687E2221",
             "image": "CANDLE011.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -188,7 +221,10 @@
             "image_url": "https://instagram.fbrs4-2.fna.fbcdn.net/v/t51.29350-15/338790699_228528853061202_2931595952121293718_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjE0NDB4MTgwMC5zZHIuZjI5MzUwLmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fbrs4-2.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2QHv3H871Oec4O83ljmAhfi6t1c3gsGmXkqkhx9CsNcTrNWZCAdFXAZwUbJtbrzetBs7xnUnQ0vqcxBSpOD-rnNN&_nc_ohc=o33HcI6Q3xUQ7kNvwEkxxAf&_nc_gid=iym7dXgDUj1kwOmR5PY02A&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MzA3MTc4NTgwMDI2OTM2NzAwNQ%3D%3D.3-ccb7-5&oh=00_AfOmdmWbHtY15EIYVcT9U2tne2zjdhGmw8i7zlV_9hgxLQ&oe=685C76EA&_nc_sid=22de04",
             "image": "CANDLE012.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -204,7 +240,10 @@
             "image_url": "https://instagram.fbrs4-1.fna.fbcdn.net/v/t51.29350-15/329802661_560339522792748_7339899453863308103_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4MTQ0MC5zZHIuZjI5MzUwLmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fbrs4-1.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2QFiWhj1GW8ImH0ABH1gja8l5nno5JHzhQTzYefI4JvPineyO6sVBVxK45qnJY0wfelNmD_44m8uaC_agbjLOyZt&_nc_ohc=FeyuLYnV-kQQ7kNvwG3nIul&_nc_gid=XHit5yJ4tHmzu-vK4MN1pg&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MzAzNDg4NjUzOTg3Mjk2NDQ4NA%3D%3D.3-ccb7-5&oh=00_AfNbapt7u2MD6jn7OXzVEYj7cBO9WMwmrtcRqtzeJ2Jfmg&oe=685C6525&_nc_sid=22de04",
             "image": "CANDLE013.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -220,7 +259,10 @@
             "image_url": "https://instagram.fbrs4-1.fna.fbcdn.net/v/t51.29350-15/281577506_315716687388276_1448376004009476050_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4MTgwMC5zZHIuZjI5MzUwLmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fbrs4-1.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2QHUPwkGiL7kH6DSTViQi_yf4IOOl8e9x7dSjf0qrs_1jLmWxZUCP-nJshix3JUXKN_9-UO0ZjSOcCtJbXr57QRp&_nc_ohc=ys00iB8oZn4Q7kNvwFM6pLq&_nc_gid=kANf4FYCfIR35lluATg9xw&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MjgzOTkzNzM4Nzc1OTE5NDI3OQ%3D%3D.3-ccb7-5&oh=00_AfPL0SA9_P7Wb6mdxmr1kLPVJu0LMI903l4sm_HvC9156Q&oe=685C659A&_nc_sid=22de04",
             "image": "CANDLE014.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -236,7 +278,10 @@
             "image_url": "https://instagram.fbrs4-2.fna.fbcdn.net/v/t51.29350-15/276969136_1030440540902643_8500826511743280077_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4MTgwMC5zZHIuZjI5MzUwLmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fbrs4-2.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2QHUPwkGiL7kH6DSTViQi_yf4IOOl8e9x7dSjf0qrs_1jLmWxZUCP-nJshix3JUXKN_9-UO0ZjSOcCtJbXr57QRp&_nc_ohc=8kbMCzKaKx0Q7kNvwFErPzv&_nc_gid=kANf4FYCfIR35lluATg9xw&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MjgwMDE4NTkzNTIzNTEyNTU4Mw%3D%3D.3-ccb7-5&oh=00_AfOf7cv8Fe6q-JijxNygkKneLmEsgks0MGZNY9bVJR0Ipw&oe=685C5AAA&_nc_sid=22de04",
             "image": "CANDLE015.webp",
             "has_sizes": false,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": []
         }
     },
     {
@@ -252,7 +297,10 @@
             "image_url": "https://instagram.fbrs4-2.fna.fbcdn.net/v/t51.29350-15/117401771_912602799248799_1396276208224621586_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4MTQ0MC5zZHIuZjI5MzUwLmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fbrs4-2.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2QHz0v51Uw8xIP1-HR8sAw3_BDY6zyDJeEi6-DrJozDnCpQAtabfeVyrjscSF2vUP7bOrPlMH_dVh4q744Gg3VE1&_nc_ohc=GXW-7U40wN4Q7kNvwFcejEI&_nc_gid=yFNESN6E_kFKvgvV7EYc7g&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MjM3Mzc3OTU2NDQ0OTMwNzkzMg%3D%3D.3-ccb7-5&oh=00_AfNsMk8KfED69Ob0h-TwVGOvphI6EbKmL_oBKczqZDN3jA&oe=685C652F&_nc_sid=22de04",
             "image": "CANDLE016.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -268,7 +316,10 @@
             "image_url": "https://instagram.fbrs4-2.fna.fbcdn.net/v/t51.29350-15/108162060_146992873638846_2213494395270783255_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjE0NDB4MTQ0MC5zZHIuZjI5MzUwLmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fbrs4-2.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2QElGKQjBW3YRvA65C11JzTlt6529IpFhJUeDavxtmd2FnfNh6my1QaokiF9doJG-7HtpwCF6i8luTEEyucjn5TH&_nc_ohc=S0k3J9h8bfgQ7kNvwEuPUHy&_nc_gid=l6BDs6UsBHjWhWaBQqQgmw&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MjM1NDkxOTc2MjQxOTk0NTQwMw%3D%3D.3-ccb7-5&oh=00_AfM64K2v3j6SlfxAMzlAHrRw7t7tSdO7JsyJI93CGrfCTw&oe=685C6DAE&_nc_sid=22de04",
             "image": "CANDLE017.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -284,7 +335,10 @@
             "image_url": "https://instagram.fbrs4-2.fna.fbcdn.net/v/t51.2885-15/97575403_855809834927111_1463659868646378909_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4MTQ0MC5zZHIuZjI4ODUuZGVmYXVsdF9pbWFnZSJ9&_nc_ht=instagram.fbrs4-2.fna.fbcdn.net&_nc_cat=111&_nc_oc=Q6cZ2QEoXgLHWAsRyHYN33FGAxK0zlgwV-wObNs0tamE3FH4IVQvoMq4OHdPNPRUq8rLDW2IwtA0AKkRkhLzd_y83olr&_nc_ohc=8noyZOR1LtIQ7kNvwGkb7eY&_nc_gid=ca7BvNLOnCL_q3acfcGI6A&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MjMxMjIxMTI1ODczNTM5NDA5MA%3D%3D.3-ccb7-5&oh=00_AfN8GevAVq27jYMlH3yKEFwTe7xB425veDly1ABIPIJX3Q&oe=685C7135&_nc_sid=22de04",
             "image": "CANDLE018.webp",
             "has_sizes": true,
-            "has_scents": false
+            "has_scents": false,
+            "available_scents": [],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -300,7 +354,10 @@
             "image_url": "https://instagram.fbrs4-1.fna.fbcdn.net/v/t51.2885-15/82723169_589430561632712_7519532369972322988_n.jpg?stp=dst-jpg_e15_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjEwODB4MTA4MC5zZHIuZjI4ODUuZGVmYXVsdF9pbWFnZSJ9&_nc_ht=instagram.fbrs4-1.fna.fbcdn.net&_nc_cat=108&_nc_oc=Q6cZ2QGozhvGtRapXqN7sMYd-jAp9kIyL_ngg--90Dn9Bvd8vGgToY0YmVrcJf8M8IHRgcmBjIWdMwHIv3cAFi7sns30&_nc_ohc=Nd71ApifpG4Q7kNvwGtbQm2&_nc_gid=Laq65-vqG4AbCwdf5NhL0g&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MjIyNjczNjkxODU1MjkwMTk4OA%3D%3D.3-ccb7-5&oh=00_AfPwmslmkaIk5wgFBtABpezQgy4Ike2hGIYvS42EVPh2aQ&oe=685C5B0D&_nc_sid=22de04",
             "image": "CANDLE019.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -316,7 +373,10 @@
             "image_url": "https://instagram.fbrs4-2.fna.fbcdn.net/v/t51.2885-15/80107445_1096245107403442_671183518732343927_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjE0NDB4MTQ0MC5zZHIuZjI4ODUuZGVmYXVsdF9pbWFnZSJ9&_nc_ht=instagram.fbrs4-2.fna.fbcdn.net&_nc_cat=110&_nc_oc=Q6cZ2QFlh0-KRDjlhQ8im46FQSYWxo54qXxLgtNb0SDXjoOzcGjs-Wb43EYZHizORpekZvKSl9ZNCN4-5oTGnz4BdAI3&_nc_ohc=cw3BYaxegkMQ7kNvwE_KEly&_nc_gid=d3X_PTbFoQ6yuur-cfVjUA&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MjIxNzU0MTMwMTc5MjE2MDE1Ng%3D%3D.3-ccb7-5&oh=00_AfPs95Uu6bVXZMaNjTw4l4rg6CAtWMTMC0HSa3PWWPvFMQ&oe=685C55D0&_nc_sid=22de04",
             "image": "CANDLE020.webp",
             "has_sizes": true,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": ["1", "2", "3", "4"]
         }
     },
     {
@@ -332,7 +392,10 @@
             "image_url": "https://instagram.fbrs4-2.fna.fbcdn.net/v/t51.2885-15/80650068_120899292443530_8193792750627722966_n.jpg?stp=dst-jpg_e15_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjEwODB4MTA4MC5zZHIuZjI4ODUuZGVmYXVsdF9pbWFnZSJ9&_nc_ht=instagram.fbrs4-2.fna.fbcdn.net&_nc_cat=110&_nc_oc=Q6cZ2QGeyP6O7iL_ZEY3wAaIsMD3AFOttTxXFmII_x7QWF51AXxKBOuu6NqpRhpUMP6SYnR0GJBZiPrAQTklQE7JLpju&_nc_ohc=HmfbAfmzSq4Q7kNvwGf1zZq&_nc_gid=nmmlZKtAQLQprEt9mniTMQ&edm=APoiHPcBAAAA&ccb=7-5&ig_cache_key=MjIxNDY2NzMwMDE5MTQwNDYzNQ%3D%3D.3-ccb7-5&oh=00_AfMrIlSlG5P_i4gYrhHvkBFn5LWvPfDAYa4tQd56561r8g&oe=685C73B2&_nc_sid=22de04",
             "image": "CANDLE021.webp",
             "has_sizes": false,
-            "has_scents": true
+            "has_scents": true,
+            "available_scents": [1, 2, 3, 4, 5],
+            "available_wax_types": [1, 2, 3],
+            "available_sizes": []
         }
     }
 ]

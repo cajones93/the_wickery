@@ -42,9 +42,9 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                        <p class="my-0"><strong>Wax: </strong>{{ item.wax|upper }}</p>
-                                        <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                                        <p class="my-0"><strong>Scent: </strong>{% if item.product.has_scents %}{{ item.scent|upper }}{% else %}N/A{% endif %}</p>
+                                        <p class="my-0"><strong>Wax: </strong>{{ item.wax.friendly_name }}</p>
+                                        <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size.friendly_name }}{% else %}N/A{% endif %}</p>
+                                        <p class="my-0"><strong>Scent: </strong>{% if item.product.has_scents %}{{ item.scent.friendly_name }}{% else %}N/A{% endif %}</p>
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
@@ -75,18 +75,24 @@
                                                             </span>
                                                         </button>
                                                     </div>
-                                                        <input type="hidden" name="product_wax" value="{{ item.wax }}">
+                                                        <input type="hidden" name="product_wax" value="{{ item.wax.pk }}">
                                                     {% if item.product.has_sizes %}
-                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                                                        <input type="hidden" name="product_size" value="{{ item.size.pk }}">
                                                     {% endif %}
                                                     {% if item.product.has_scents %}
-                                                        <input type="hidden" name="product_scent" value="{{ item.scent }}">
+                                                        <input type="hidden" name="product_scent" value="{{ item.scent.pk }}">
                                                     {% endif %}
                                                 </div>
                                             </div>
                                         </form>
                                         <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}" data-scent="{{ item.scent }}" data-wax="{{item.wax}}"><small>Remove</small></a>
+                                        <a class="remove-item text-danger float-right"
+                                            id="remove_{{ item.item_id }}"
+                                            data-size="{{ item.size.pk }}"
+                                            data-scent="{{ item.scent.pk }}"
+                                            data-wax="{{ item.wax.pk }}">
+                                                <small>Remove</small>
+                                        </a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -156,7 +162,7 @@
         var scent = $(this).data('scent');
         var wax = $(this).data('wax');
         var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'size': size, 'scent': scent, 'wax': wax};
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size, 'product_scent': scent, 'product_wax': wax};
         $.post(url, data)
          .done(function() {
              location.reload();

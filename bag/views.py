@@ -148,44 +148,50 @@ def remove_from_bag(request, item_id):
     """
     Remove the specified product (and its options) from the bag.
     """
-    
+
     product = get_object_or_404(Product, pk=item_id)
-    
-    size = request.POST.get('size')
-    scent = request.POST.get('scent')
-    wax = request.POST.get('wax')
 
-    bag = request.session.get('bag', {})
+    try:
+        size = request.POST.get('size')
+        scent = request.POST.get('scent')
+        wax = request.POST.get('wax')
 
-    message_parts = [f'"{product.name}"']
-    
-    # List for size and scents 
-    options = []
-    if size:
-        options.append(f'size_{size}')
-        message_parts.append(f'Size: {size.upper()}')
+        bag = request.session.get('bag', {})
 
-    if scent:
-        options.append(f'scent_{scent}')
-        message_parts.append(f'Scent: {scent.capitalize()}')
-        
-    if wax and wax != "None":
-        options.append(f'wax_{wax}')
-        message_parts.append(f'Wax: {wax.capitalize()}')
+        message_parts = [f'"{product.name}"']
 
-    message_string = " | ".join(message_parts)
+        # List for size and scents 
+        options = []
+        if size:
+            options.append(f'size_{size}')
+            message_parts.append(f'Size: {size.upper()}')
 
-    if not options:
-        options_key = 'no_options'
-    else:
-        options_key = '_'.join(options)
+        if scent:
+            options.append(f'scent_{scent}')
+            message_parts.append(f'Scent: {scent.capitalize()}')
 
-    if options_key == 'no_options':
-        bag.pop(item_id)
-        messages.success(request, f'Removed {product.name} from your bag')
-    else:
-        del bag[item_id]['items_by_options'][options_key]
-        messages.success(request, f'Removed "{message_string}" from your bag')
+        if wax and wax != "None":
+            options.append(f'wax_{wax}')
+            message_parts.append(f'Wax: {wax.capitalize()}')
 
-    request.session['bag'] = bag
-    return HttpResponse(status=200)
+        message_string = " | ".join(message_parts)
+
+        if not options:
+            options_key = 'no_options'
+        else:
+            options_key = '_'.join(options)
+
+        if options_key == 'no_options':
+            bag.pop(item_id)
+            messages.success(request, f'Removed {product.name} from your bag')
+        else:
+            del bag[item_id]['items_by_options'][options_key]
+            messages.success(request, f'Removed "{message_string}" from your bag')
+
+        request.session['bag'] = bag
+        return HttpResponse(status=200)
+
+    except Exception as e:
+
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)

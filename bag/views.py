@@ -19,7 +19,7 @@ def view_bag(request):
 
         if 'items_by_options' in item_data and isinstance(item_data['items_by_options'], dict):
             for options_key, quantity in item_data['items_by_options'].items():
-                
+
                 size = None
                 scent = None
                 wax = None
@@ -29,25 +29,26 @@ def view_bag(request):
                 # Parse options_key to get the chosen options' PKs
                 option_parts = options_key.split('_')
                 
-                # Loop through parts, expecting format like 'size_1', 'scent_2', 'wax_3'
+                # Loop through parts
                 for i in range(len(option_parts)):
                     if option_parts[i] == 'size' and i + 1 < len(option_parts):
                         # Get pk from options
-                        size_pk = option_parts[i+1] # This is now the PK
+                        size_pk = option_parts[i+1]
                         size = CandleSize.objects.get(pk=size_pk)
                         size_modifier = size.price_modifier or 0
                     elif option_parts[i] == 'scent' and i + 1 < len(option_parts):
-                        scent_pk = option_parts[i+1] # This is now the PK
+                        scent_pk = option_parts[i+1]
                         scent = Scent.objects.get(pk=scent_pk)
                     elif option_parts[i] == 'wax' and i + 1 < len(option_parts):
-                        wax_pk = option_parts[i+1] # This is now the PK
+                        wax_pk = option_parts[i+1]
                         wax = WaxType.objects.get(pk=wax_pk)
                         wax_modifier = wax.price_modifier or 0
 
                 # Calculate line item total with modifiers
-                lineitem_total = (product.price + wax_modifier + size_modifier) * quantity
-                total += lineitem_total
-                product_count += quantity
+                lineitem_subtotal = product.price * wax_modifier * size_modifier
+                lineitem_total = lineitem_subtotal * quantity
+                print(f'{product.price} * {wax_modifier} * {size_modifier} = {lineitem_subtotal}')
+                print(f'{lineitem_subtotal} * {quantity} = {lineitem_total}')
 
                 bag_items.append({
                     'item_id': item_id,
@@ -57,6 +58,7 @@ def view_bag(request):
                     'scent': scent,
                     'wax': wax,
                     'options_key': options_key,
+                    'lineitem_subtotal': lineitem_subtotal,
                     'lineitem_total': lineitem_total,
                 })
 
@@ -81,17 +83,14 @@ def add_to_bag(request, item_id):
     size = None
     if 'product_size' in request.POST:
         size = get_object_or_404(CandleSize, pk=request.POST['product_size'])
-        size_pk = size.pk
 
     scent = None
     if 'product_scent' in request.POST:
         scent = get_object_or_404(Scent, pk=request.POST['product_scent'])
-        scent_pk = scent.pk
         
     wax = None
     if 'product_wax' in request.POST:
         wax = get_object_or_404(WaxType, pk=request.POST['product_wax'])
-        wax_pk = wax.pk
 
     bag = request.session.get('bag', {})
 
@@ -100,15 +99,15 @@ def add_to_bag(request, item_id):
     # List for size and scents 
     options = []
     if size:
-        options.append(f'size_{size_pk}')
+        options.append(f'size_{size.pk}')
         message_parts.append(f'Size: {size.friendly_name}')
 
     if scent:
-        options.append(f'scent_{scent_pk}')
+        options.append(f'scent_{scent.pk}')
         message_parts.append(f'Scent: {scent.friendly_name}')
         
     if wax and wax != "None":
-        options.append(f'wax_{wax_pk}')
+        options.append(f'wax_{wax.pk}')
         message_parts.append(f'Wax: {wax.friendly_name}')
 
     message_string = " | ".join(message_parts)
@@ -149,22 +148,19 @@ def adjust_bag(request, item_id):
     size = None
     if 'product_size' in request.POST:
         size = get_object_or_404(CandleSize, pk=request.POST['product_size'])
-        size_pk = size.pk
 
     scent = None
     if 'product_scent' in request.POST:
         scent = get_object_or_404(Scent, pk=request.POST['product_scent'])
-        scent_pk = scent.pk
-        
+
     wax = None
     if 'product_wax' in request.POST:
         wax = get_object_or_404(WaxType, pk=request.POST['product_wax'])
-        wax_pk = wax.pk
 
     bag = request.session.get('bag', {})
 
     message_parts = [f'"{product.name}"']
-    
+
     # List for size and scents 
     options = []
     if size:
@@ -186,6 +182,7 @@ def adjust_bag(request, item_id):
     else:
         options_key = '_'.join(options)
 
+    print(f'options_key: {options_key}')
     if item_id in bag and isinstance(bag[item_id], dict) and 'items_by_options' in bag[item_id]:
         if options_key in bag[item_id]['items_by_options']:
             if quantity > 0:
@@ -195,15 +192,6 @@ def adjust_bag(request, item_id):
                 # Remove from the bag if quantity is 0 or less
                 del bag[item_id]['items_by_options'][options_key]
                 messages.success(request, f'Removed "{message_string}" from your bag')
-
-                # ----------------------------------------------
-                # If no more options for this item_id, remove the item_id itself ----- DONT THINK NECESSARY
-                # if not bag[item_id]['items_by_options']:
-                #     bag.pop(item_id)
-                #     if size and size != "None":
-                #         messages.success(request, f'Updated size {size.upper()} {product.name} made from {wax} with scent: {scent} to your bag')
-                #     else:
-                #         messages.success(request, f'Updated {product.name} made from {wax} with scent: {scent} to your bag')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
@@ -220,17 +208,14 @@ def remove_from_bag(request, item_id):
         size = None
         if 'product_size' in request.POST:
             size = get_object_or_404(CandleSize, pk=request.POST['product_size'])
-            size_pk = size.pk
 
         scent = None
         if 'product_scent' in request.POST:
             scent = get_object_or_404(Scent, pk=request.POST['product_scent'])
-            scent_pk = scent.pk
             
         wax = None
         if 'product_wax' in request.POST:
             wax = get_object_or_404(WaxType, pk=request.POST['product_wax'])
-            wax_pk = wax.pk
 
         bag = request.session.get('bag', {})
 

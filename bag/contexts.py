@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from products.models import Product
+from products.models import Product, WaxType, Scent, CandleSize
 
 
 def bag_contents(request):
@@ -15,25 +15,34 @@ def bag_contents(request):
 
         product = get_object_or_404(Product, pk=item_id)
 
+
         for options_key, quantity in item_data['items_by_options'].items():
             if quantity > 0:
-                total += quantity * product.price
-                product_count += quantity
 
                 # Get the size, scent, and wax from the options_key
                 size = None
                 scent = None
                 wax = None
+                size_multiplier = Decimal('1.00') 
+                wax_multiplier = Decimal('1.00')
+                
                 if options_key != 'no_options':
                     parts = options_key.split('_')
                     for i in range(len(parts)):
                         if parts[i] == 'size' and i + 1 < len(parts):
-                            size = parts[i+1]
-                        elif parts[i] == 'scent' and i + 1 < len(parts):
-                            scent = parts[i+1]
+                            size_pk = parts[i+1]
+                            size_obj = get_object_or_404(CandleSize, pk=size_pk)
+                            size_multiplier = size_obj.price_modifier or 1.0
                         elif parts[i] == 'wax' and i + 1 < len(parts):
-                            wax = parts[i+1]
-
+                            wax_pk = parts[i+1]
+                            wax_obj = get_object_or_404(WaxType, pk=wax_pk)
+                            wax_multiplier = wax_obj.price_modifier or 1.0
+                
+                line_subtotal = product.price * size_multiplier * wax_multiplier
+                    
+                total += quantity * line_subtotal
+                product_count += quantity
+                
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
@@ -41,6 +50,8 @@ def bag_contents(request):
                     'size': size,
                     'scent': scent,
                     'wax': wax,
+                    'line_subtotal': line_subtotal,
+                    'lineitem_total': line_subtotal * quantity,
                 })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
@@ -53,7 +64,6 @@ def bag_contents(request):
     grand_total = delivery + total
 
     context = {
-        'bag_items': bag_items,
         'total': total,
         'product_count': product_count,
         'delivery': delivery,

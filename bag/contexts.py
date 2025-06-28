@@ -20,10 +20,10 @@ def bag_contents(request):
                 total += quantity * product.price
                 product_count += quantity
 
-                # Get the size and scent from the options_key
+                # Get the size, scent, and wax from the options_key
                 size = None
                 scent = None
-                print(f"DEBUG BAG_CONTENTS: Parsing option_key: {options_key}") # <-- ADD THIS
+                wax = None
                 if options_key != 'no_options':
                     parts = options_key.split('_')
                     for i in range(len(parts)):
@@ -31,18 +31,17 @@ def bag_contents(request):
                             size = parts[i+1]
                         elif parts[i] == 'scent' and i + 1 < len(parts):
                             scent = parts[i+1]
+                        elif parts[i] == 'wax' and i + 1 < len(parts):
+                            wax = parts[i+1]
 
-                print(f"DEBUG BAG_CONTENTS: Parsed size: {size}, scent: {scent} for item_id: {item_id}") # <-- ADD THIS
-                
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
                     'size': size,
                     'scent': scent,
+                    'wax': wax,
                 })
-                
-                print(f"DEBUG BAG_CONTENTS: Final bag_items prepared for template: {bag_items}") # <-- ADD THIS
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)

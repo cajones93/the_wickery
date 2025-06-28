@@ -19,6 +19,10 @@ def add_to_bag(request, item_id):
     scent = None
     if 'product_scent' in request.POST:
         scent = request.POST['product_scent']
+        
+    wax = None
+    if 'product_wax' in request.POST:
+        wax = request.POST['product_wax']
 
     bag = request.session.get('bag', {})
 
@@ -29,6 +33,9 @@ def add_to_bag(request, item_id):
 
     if scent:
         options.append(f'scent_{scent}')
+        
+    if wax and wax != "None":
+        options.append(f'wax_{wax}')
 
     # If no size or scent
     if not options:
@@ -46,6 +53,7 @@ def add_to_bag(request, item_id):
     else:
         bag[item_id]['items_by_options'][options_key] = quantity
 
+    print(f'Options added: {options_key}')
     request.session['bag'] = bag
     return redirect(redirect_url)
 
@@ -62,6 +70,10 @@ def adjust_bag(request, item_id):
     scent = None
     if 'product_scent' in request.POST:
         scent = request.POST['product_scent']
+        
+    wax = None
+    if 'product_wax' in request.POST:
+        wax = request.POST['product_wax']
 
     bag = request.session.get('bag', {})
 
@@ -71,6 +83,8 @@ def adjust_bag(request, item_id):
         options.append(f'size_{size}')
     if scent and scent != "None":
         options.append(f'scent_{scent}')
+    if wax and wax != "None":
+        options.append(f'wax_{wax}')
 
     if not options:
         options_key = 'no_options'
@@ -99,6 +113,7 @@ def remove_from_bag(request, item_id):
     
     size = request.POST.get('size')
     scent = request.POST.get('scent')
+    wax = request.POST.get('wax')
 
     bag = request.session.get('bag', {})
 
@@ -107,6 +122,8 @@ def remove_from_bag(request, item_id):
         options.append(f'size_{size}')
     if scent and scent != "None":
         options.append(f'scent_{scent}')
+    if wax:
+        options.append(f'wax_{wax}')
 
     if not options:
         options_key = 'no_options'

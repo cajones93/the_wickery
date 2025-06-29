@@ -3,73 +3,10 @@ from django.contrib import messages
 
 from products.models import Product, WaxType, Scent, CandleSize
 
-
 def view_bag(request):
-    """
-    A view that renders the bag contents page.
-    It processes the session bag to retrieve full product and option details.
-    """
-    bag = request.session.get('bag', {})
-    bag_items = []
-    total = 0
-    product_count = 0
+    """ A view that renders the bag contents page """
 
-    for item_id, item_data in bag.items():
-        product = get_object_or_404(Product, pk=item_id)
-
-        if 'items_by_options' in item_data and isinstance(item_data['items_by_options'], dict):
-            for options_key, quantity in item_data['items_by_options'].items():
-
-                size = None
-                scent = None
-                wax = None
-                wax_modifier = 0
-                size_modifier = 0
-
-                # Parse options_key to get the chosen options' PKs
-                option_parts = options_key.split('_')
-                
-                # Loop through parts
-                for i in range(len(option_parts)):
-                    if option_parts[i] == 'size' and i + 1 < len(option_parts):
-                        # Get pk from options
-                        size_pk = option_parts[i+1]
-                        size = CandleSize.objects.get(pk=size_pk)
-                        size_modifier = size.price_modifier or 0
-                    elif option_parts[i] == 'scent' and i + 1 < len(option_parts):
-                        scent_pk = option_parts[i+1]
-                        scent = Scent.objects.get(pk=scent_pk)
-                    elif option_parts[i] == 'wax' and i + 1 < len(option_parts):
-                        wax_pk = option_parts[i+1]
-                        wax = WaxType.objects.get(pk=wax_pk)
-                        wax_modifier = wax.price_modifier or 0
-
-                # Calculate line item total with modifiers
-                lineitem_subtotal = product.price * wax_modifier * size_modifier
-                lineitem_total = lineitem_subtotal * quantity
-                print(f'{product.price} * {wax_modifier} * {size_modifier} = {lineitem_subtotal}')
-                print(f'{lineitem_subtotal} * {quantity} = {lineitem_total}')
-
-                bag_items.append({
-                    'item_id': item_id,
-                    'quantity': quantity,
-                    'product': product,
-                    'size': size,
-                    'scent': scent,
-                    'wax': wax,
-                    'options_key': options_key,
-                    'lineitem_subtotal': lineitem_subtotal,
-                    'lineitem_total': lineitem_total,
-                })
-
-    # Prepare context for template
-    context = {
-        'bag_items': bag_items,
-        'total': total,
-        'product_count': product_count,
-    }
-
-    return render(request, 'bag/bag.html', context)
+    return render(request, 'bag/bag.html')
 
 
 def add_to_bag(request, item_id):
@@ -94,7 +31,7 @@ def add_to_bag(request, item_id):
 
     bag = request.session.get('bag', {})
 
-    message_parts = [f'"{product.name}"']
+    message_parts = [f'{product.name}']
     
     # List for size and scents 
     options = []
@@ -159,7 +96,7 @@ def adjust_bag(request, item_id):
 
     bag = request.session.get('bag', {})
 
-    message_parts = [f'"{product.name}"']
+    message_parts = [f'{product.name}']
 
     # List for size and scents 
     options = []
@@ -219,7 +156,7 @@ def remove_from_bag(request, item_id):
 
         bag = request.session.get('bag', {})
 
-        message_parts = [f'"{product.name}"']
+        message_parts = [f'{product.name}']
 
         # List for size and scents 
         options = []

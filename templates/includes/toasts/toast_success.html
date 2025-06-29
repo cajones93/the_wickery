@@ -24,9 +24,9 @@
                         </div>
                         <div class="col-9">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 small">Wax: {{ item.wax|capfirst }}</p>
-                            <p class="my-0 small">Scent: {% if item.product.has_scents %}{{ item.scent|capfirst }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size.friendly_name|capfirst }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0 small">Wax: {{ item.wax.friendly_name|capfirst }}</p>
+                            <p class="my-0 small">Scent: {% if item.product.has_scents %}{{ item.scent.friendly_name|capfirst }}{% else %}N/A{% endif %}</p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                     </div>

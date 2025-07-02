@@ -25,6 +25,16 @@ body {
     width: 1.5rem;
 }
 
+.img-fluid{
+    border-radius: 5px;
+}
+
+.all-products-img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
 .logo-font {
     text-transform: uppercase;
     font-family: var(--title-font), 'sans-serif';

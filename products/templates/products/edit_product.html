@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="logo-font mb-4">Product Management</h2>
+                <h5 class="text-muted">Edit a Product</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-right">
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Update Product</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }} {# Include this if your base.html also has a postloadjs block #}
+    <script>
+        $(document).ready(function() {
+            // Select the checkboxes for has_scents and has_sizes
+            const hasScentsCheckbox = $('#id_has_scents');
+            const hasSizesCheckbox = $('#id_has_sizes');
+
+            // Select the Crispy Forms div containers for available_scents and available_sizes
+            // Crispy Forms typically wraps fields in a div with id="div_id_FIELDNAME"
+            const availableScentsContainer = $('#div_id_available_scents');
+            const availableSizesContainer = $('#div_id_available_sizes');
+
+            // Function to toggle visibility
+            function toggleFieldVisibility(checkbox, container) {
+                if (checkbox.is(':checked')) {
+                    container.slideDown();
+                } else {
+                    container.slideUp();
+                    // uncheck all checkboxes when hidden 
+                    container.find('input[type="checkbox"]').prop('checked', false);
+                }
+            }
+
+            toggleFieldVisibility(hasScentsCheckbox, availableScentsContainer);
+            toggleFieldVisibility(hasSizesCheckbox, availableSizesContainer);
+
+            hasScentsCheckbox.on('change', function() {
+                toggleFieldVisibility($(this), availableScentsContainer);
+            });
+
+            hasSizesCheckbox.on('change', function() {
+                toggleFieldVisibility($(this), availableSizesContainer);
+            });
+        });
+    </script>
+{% endblock %}

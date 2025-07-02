@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Product, Category, Scent, CandleSize, WaxType
 
 
@@ -48,6 +49,8 @@ class ProductForm(forms.ModelForm):
             'available_sizes',
             'available_wax_types',
         ]
+        
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

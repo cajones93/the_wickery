@@ -35,3 +35,41 @@
         </div>
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }} {# Include this if your base.html also has a postloadjs block #}
+    <script>
+        $(document).ready(function() {
+            // Select the checkboxes for has_scents and has_sizes
+            const hasScentsCheckbox = $('#id_has_scents');
+            const hasSizesCheckbox = $('#id_has_sizes');
+
+            // Select the Crispy Forms div containers for available_scents and available_sizes
+            // Crispy Forms typically wraps fields in a div with id="div_id_FIELDNAME"
+            const availableScentsContainer = $('#div_id_available_scents');
+            const availableSizesContainer = $('#div_id_available_sizes');
+
+            // Function to toggle visibility
+            function toggleFieldVisibility(checkbox, container) {
+                if (checkbox.is(':checked')) {
+                    container.slideDown();
+                } else {
+                    container.slideUp();
+                    // uncheck all checkboxes when hidden 
+                    container.find('input[type="checkbox"]').prop('checked', false);
+                }
+            }
+
+            toggleFieldVisibility(hasScentsCheckbox, availableScentsContainer);
+            toggleFieldVisibility(hasSizesCheckbox, availableSizesContainer);
+
+            hasScentsCheckbox.on('change', function() {
+                toggleFieldVisibility($(this), availableScentsContainer);
+            });
+
+            hasSizesCheckbox.on('change', function() {
+                toggleFieldVisibility($(this), availableSizesContainer);
+            });
+        });
+    </script>
+{% endblock %}

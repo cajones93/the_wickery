@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Category(models.Model):
 
@@ -70,7 +70,10 @@ class Product(models.Model):
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
     has_scents = models.BooleanField(default=False, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, validators=[
+            MinValueValidator(1, message='Rating must be at least 1.'),
+            MaxValueValidator(5, message='Rating cannot exceed 5.')
+        ])
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     available_scents = models.ManyToManyField(Scent, blank=True, related_name='products_available_scents')

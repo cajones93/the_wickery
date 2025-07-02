@@ -41,7 +41,6 @@ class ProductForm(forms.ModelForm):
             'price',
             'rating',
             'image',
-            'image_url',
             'category',
             'has_scents',
             'available_scents',

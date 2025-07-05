@@ -88,9 +88,11 @@ def adjust_bag(request, item_id):
     """
     Adjust the quantity of the specified product (and its options) to the new amount.
     """
-    
-    quantity = int(request.POST.get('quantity'))
-
+    try:
+        quantity = int(request.POST.get('quantity'))
+    except (ValueError, TypeError):
+        quantity = 0
+        
     bag = request.session.get('bag', {})
 
     options_key, message_string = get_product_and_options(request, item_id)

@@ -281,6 +281,11 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+#qty_error_container{
+    padding: 0;
+    color: #dc3545;
+}
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {

@@ -107,6 +107,9 @@
                                             </span>
                                         </button>
                                     </div>
+                                    <div id="qty_error_container" class="col-12">
+                                        <small>Qty Error</small>
+                                    </div>
                                 </div>
                                 </div>
                             </div>
@@ -150,6 +153,7 @@
     const sizeSelect = document.getElementById('id_product_size');
     const calculatedTotalPriceSpan = document.getElementById('calculated-total-price');
     const quantityInput = document.getElementById('id_qty_{{ product.id }}');
+    const qty_error_container = document.getElementById("qty_error_container");
 
     // Set min and max quantity for validation
     const minQuantity = parseInt(quantityInput.min) || 1;
@@ -163,14 +167,25 @@
         if (isNaN(currentQuantity)) {
             currentQuantity = minQuantity; // if not a number, default to the minimum
             quantityInput.value = currentQuantity;
+            qty_error_container.classList.remove('d-none')
+            qty_error_container.textContent = "Invalid quantity"
         } else if (currentQuantity < minQuantity) {
             currentQuantity = minQuantity; // set min if below min
             quantityInput.value = currentQuantity;
+            qty_error_container.classList.remove('d-none')
+            qty_error_container.textContent = "Min quantity is 1"
+            
         } else if (currentQuantity > maxQuantity) {
             currentQuantity = maxQuantity; // set max if above max
             quantityInput.value = currentQuantity;
+            qty_error_container.classList.remove('d-none')
+            qty_error_container.textContent = "Max quantity is 99"
         }
-
+        else {
+            // valid quantity
+            qty_error_container.classList.add('d-none');
+            qty_error_container.textContent = '';
+        }
         return currentQuantity;
     }
 

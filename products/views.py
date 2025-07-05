@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, CandleSize, WaxType
 from .forms import ProductForm
 
 
@@ -64,9 +64,27 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    
+    wax_types = []
+    for wax in product.available_wax_types.all():
+        wax_types.append({
+            'pk': wax.pk,
+            'friendly_name': wax.friendly_name,
+            'price_modifier': wax.price_modifier,
+        })
 
+    candle_sizes = []
+    for size in product.available_sizes.all():
+        candle_sizes.append({
+            'pk': size.pk,
+            'friendly_name': size.friendly_name,
+            'price_modifier': size.price_modifier,
+        })
+    
     context = {
         'product': product,
+        'wax_types': wax_types,
+        'candle_sizes': candle_sizes,
     }
 
     return render(request, 'products/product_detail.html', context)

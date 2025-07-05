@@ -29,7 +29,7 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
                     <p class="mb-0">{{ product.name }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                    <p class="lead mb-0 text-left font-weight-bold">Base Price: £<span id="base-product-price">{{ product.price }}</span></p>
                     {% if product.category %}
                     <p class="small mt-1 mb-0">
                         <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -56,7 +56,7 @@
                                     <p><strong>Wax:</strong></p>
                                     <select class="form-control rounded-0 w-50" name="product_wax" id='id_product_wax'>
                                             {% for wax in product.available_wax_types.all %}
-                                                <option value="{{wax.pk}}">{{wax.friendly_name}}</option>
+                                                <option value="{{wax.pk}}" data-modifier="{{ wax.price_modifier }}">{{wax.friendly_name}}</option>
                                             {% endfor %}
                                     </select>
                                 </div>
@@ -68,7 +68,7 @@
                                     <p><strong>Size:</strong></p>
                                     <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
                                             {% for size in product.available_sizes.all %}
-                                                <option value="{{size.pk}}">{{size.friendly_name}}</option>
+                                                <option value="{{size.pk}}" data-modifier="{{ size.price_modifier }}">{{size.friendly_name}}</option>
                                             {% endfor %}
                                     </select>
                                 </div>
@@ -108,6 +108,12 @@
                                         </button>
                                     </div>
                                 </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="lead text-left font-weight-bold">Total Price: £<span id="calculated-total-price">{{ product.price|floatformat:2 }}</span></p>
                             </div>
                         </div>
                             <div class="col{% if has_sizes or has_scents %}-12 mt-2{% endif %}">
@@ -132,5 +138,91 @@
 
 {% block postloadjs %}
 {{ block.super }}
+
+
 {% include 'products/includes/quantity_input_script.html' %}
+
+<script type="text/javascript">
+    
+    // Get elements
+    const baseProductPrice = parseFloat(document.getElementById('base-product-price').textContent);
+    const waxSelect = document.getElementById('id_product_wax');
+    const sizeSelect = document.getElementById('id_product_size');
+    const calculatedTotalPriceSpan = document.getElementById('calculated-total-price');
+    const quantityInput = document.getElementById('id_qty_{{ product.id }}');
+
+    // Set min and max quantity for validation
+    const minQuantity = parseInt(quantityInput.min) || 1;
+    const maxQuantity = parseInt(quantityInput.max) || 99;
+
+    // Validate quantity selection
+    function validateQuantity() {
+        let currentQuantity = parseInt(quantityInput.value);
+
+        // Check if it's a valid number
+        if (isNaN(currentQuantity)) {
+            currentQuantity = minQuantity; // if not a number, default to the minimum
+            quantityInput.value = currentQuantity;
+        } else if (currentQuantity < minQuantity) {
+            currentQuantity = minQuantity; // set min if below min
+            quantityInput.value = currentQuantity;
+        } else if (currentQuantity > maxQuantity) {
+            currentQuantity = maxQuantity; // set max if above max
+            quantityInput.value = currentQuantity;
+        }
+
+        return currentQuantity;
+    }
+
+    // calculate the total price
+    function updateTotalPrice() {
+        let currentTotal = baseProductPrice;
+
+        
+        let selectedWaxModifier = 1.00; // Default if no wax modifier
+        if (waxSelect) {
+            let selectedWaxOption = waxSelect.options[waxSelect.selectedIndex];
+            selectedWaxModifier = parseFloat(selectedWaxOption.dataset.modifier || '1.00');
+        }
+        currentTotal *= selectedWaxModifier;
+
+        // Get selected size modifier
+        let selectedSizeModifier = 1.00; // Default if no size modifier
+        if (sizeSelect) {
+            let selectedSizeOption = sizeSelect.options[sizeSelect.selectedIndex];
+            selectedSizeModifier = parseFloat(selectedSizeOption.dataset.modifier || '1.00');
+        }
+        currentTotal *= selectedSizeModifier;
+
+        // Multiply by quantity for total 
+        let quantity = parseInt(quantityInput.value);
+        currentTotal *= validateQuantity(quantity);
+
+        // Update the total price shown
+        calculatedTotalPriceSpan.textContent = currentTotal.toFixed(2);
+    }
+
+    // Listen for changes in selections or quantity
+    if (waxSelect) {
+        waxSelect.addEventListener('change', updateTotalPrice);
+    }
+    if (sizeSelect) {
+        sizeSelect.addEventListener('change', updateTotalPrice);
+    }
+    if (quantityInput) {
+        // A user can directly type or click buttons
+        quantityInput.addEventListener('input', updateTotalPrice);
+        quantityInput.addEventListener('change', updateTotalPrice);
+    }
+    // listen to quantity buttons
+    document.querySelectorAll('.increment-qty, .decrement-qty').forEach(button => {
+        button.addEventListener('click', () => {
+            updateTotalPrice()
+        });
+    });
+
+    // Update the total price when the page loads, an item may have different default available size/wax
+    document.addEventListener('DOMContentLoaded', updateTotalPrice);
+</script>
+
 {% endblock %}

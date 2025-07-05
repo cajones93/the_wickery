@@ -80,6 +80,6 @@ class Product(models.Model):
     available_wax_types = models.ManyToManyField(WaxType, blank=False, related_name='products_available_wax_types')
     available_sizes = models.ManyToManyField(CandleSize, blank=True, related_name='products_available_sizes')
 
+
     def __str__(self):
         return self.name
-

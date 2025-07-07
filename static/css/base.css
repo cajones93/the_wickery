@@ -1,6 +1,11 @@
 :root{
     --title-font: 'Nanum Myeongjo';
     --body-font: 'Afacad';
+    --isabelline-color: #efe9e7;
+    --lavender-color: #DAE0F2;
+    --black-color: #131200;
+    --brownish-color: #64545e;
+    --greenish-color: #8fa898;
 }
 
 html {
@@ -14,6 +19,16 @@ body {
     height: calc(100vh - 164px);
     color: #555;
     font-family: var(--body-font), 'sans-serif';
+}
+
+.delivery-banner{
+    background-color: var(--isabelline-color);
+    color: black;
+}
+
+#enquiries-link{
+    color: var(--black-color);
+    background-color: var(--greenish-color);
 }
 
 /* from Bulma */
@@ -45,9 +60,12 @@ body {
 }
 
 .shop-now-button {
-    background: black;
-    color: white;
+    background: var(--lavender-color);
+    color: black;
     min-width: 260px;
+    font-weight: bold;
+    border-color: black;
+    border-radius: 25px;
 }
 
 .btn-black {
@@ -120,6 +138,43 @@ a.category-badge > span.badge:hover {
 input[name='q']::placeholder {
     color: #aab7c4;
 }
+
+
+.hero-card {
+    position: relative;
+    top: 20%;
+    background: white;
+    border-radius: 10px;
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 15px;
+    min-width: 350px;
+    text-align: center;
+}
+
+.hero-shadow {
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+                0 0  0 2px rgb(190, 190, 190),
+                0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+.search-btn{
+    background-color: var(--isabelline-color);
+    border-color: black;
+}
+
+.btn-primary{
+    background-color: var(--greenish-color);
+    border: black;
+    color: black;
+    font-weight: bold;
+}
+
+.btn-primary:hover{
+    background-color: black;
+    color: white;
+}
+
+
 
 /* ------------------------------- bootstrap toasts */
 

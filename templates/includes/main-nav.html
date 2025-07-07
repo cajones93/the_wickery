@@ -1,8 +1,8 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Products
+            <a class="logo-font font-weight-bold nav-link text-black mr-4" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All<span class="d-none d-xl-inline"> Products</span>
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
@@ -13,38 +13,44 @@
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products' %}?category=new_arrivals" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
-                New Arrivals
+            <a class="logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=new_arrivals" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
+                <span class="d-none d-xl-inline">New </span>Arrivals
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products' %}?category=unscented_candles" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
-                Unscented Candles
+            <a class="logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=unscented_candles" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
+                Unscented<span class="d-none d-xl-inline"> Candles</span> 
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products' %}?category=decorative_candles" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
-                Decorative Candles
+            <a class="logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=decorative_candles" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
+                Decorative<span class="d-none d-xl-inline"> Candles</span> 
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products' %}?category=holiday_collection" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
-                Holiday Collection
+            <a class="logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=holiday_collection" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
+                Holiday<span class="d-none d-xl-inline"> Collection</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products' %}?category=candle_sets" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
-                Candle Sets
+            <a class="logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=candle_sets" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
+                <span class="d-none d-xl-inline">Candle </span>Sets
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products' %}?category=deals" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'products' %}?category=deals" id="unscented-candles-link" aria-haspopup="true" aria-expanded="false">
                 Deals
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="logo-font font-weight-bold nav-link text-black mr-4" href="{% url 'enquiry' %}" id="enquiries-link" aria-haspopup="true" aria-expanded="false">
+                Enquiries
             </a>
         </li>
     </ul>

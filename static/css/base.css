@@ -258,6 +258,23 @@ a.category-badge > span.badge:hover {
     text-decoration: underline;
 }
 
+/* ----------------- Checkout */
+
+.checkout-headings{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.checkout-container{
+    display: flex;
+    align-items: center;
+}
+
+.checkout-img{
+    max-width: 60px;
+}
+
 /* ----------------- Bootstrap Toasts */
 
 .message-container {
@@ -443,7 +460,7 @@ a.category-badge > span.badge:hover {
 
     .sticky-sidebar {
         position: sticky;
-        top: 130px;
+        top: 140px;
         height: calc(100vh - 300px);
         overflow-y: auto;
     }

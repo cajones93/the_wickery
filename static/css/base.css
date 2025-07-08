@@ -222,8 +222,41 @@ a.category-badge > span.badge:hover {
     z-index: 10;
 }
 
-/* ----------------- Product Detail */
+.home-link{
+    color: var(--brownish-color);
+}
 
+.home-link:hover{
+    color: var(--black-color);
+    text-decoration: none;
+}
+
+/* ----------------- Bag */
+.bag-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.bag-item-card {
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.qty_input {
+    max-width: 60px; /* Adjust width of the quantity input field */
+    text-align: center;
+}
+
+.list-unstyled li {
+    margin-top: 0.5rem;
+}
+
+.grand-total{
+    text-decoration: underline;
+}
 
 /* ----------------- Bootstrap Toasts */
 
@@ -418,6 +451,11 @@ a.category-badge > span.badge:hover {
     #enquiries-link{
     border: double black;
     padding: 5px 10px;
+    }
+
+    .order-summary{
+        position: sticky;
+        top: 130px;
     }
 
 }

@@ -13,6 +13,7 @@
 .green-background{
     background-color: var(--greenish-color);
     border: 1px solid black;
+    color: black;
 }
 
 .green-background:hover{
@@ -23,6 +24,7 @@
 .blue-background{
     background-color: var(--lavender-color);
     border: 1px solid black;
+    color: black;
 }
 
 .blue-background:hover{
@@ -68,6 +70,8 @@ body {
 
 .img-fluid{
     border-radius: 5px;
+    max-height: 550px;
+    object-fit:contain;
 }
 
 /* ----------------- Navbar */
@@ -402,7 +406,7 @@ a.category-badge > span.badge:hover {
 	/* btn */
 	display: inline-block;
     font-weight: 400;
-    color: #fff;
+    color: black;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;

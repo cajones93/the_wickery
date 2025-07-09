@@ -28,7 +28,7 @@
                     {% for item in bag_items %}
                         <div class="card mb-3 bag-item-card">
                             <div class="row no-gutters">
-                                <div class="col-4 col-md-3">
+                                <div class="col-5 col-md-4">
                                     <!-- Image -->
                                     <a href="{% url 'product_detail' item.product.id %}">
                                         {% if item.product.image %}
@@ -38,7 +38,7 @@
                                         {% endif %}
                                     </a>
                                 </div>
-                                <div class="col-8 col-md-9">
+                                <div class="col-7 col-md-8">
                                     <div class="card-body">
                                         <!-- Product name, sku -->
                                         <h5 class="card-title my-0"><strong>{{ item.product.name }}</strong></h5>

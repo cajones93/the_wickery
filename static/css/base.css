@@ -198,6 +198,13 @@ input[name='q']::placeholder {
 
 /* ----------------- Products page */
 
+.rating-star{
+    color: var(--greenish-color);
+}
+
+.product-name{
+    text-wrap: nowrap;
+}
 
 .all-products-img{
     width: 300px;
@@ -470,8 +477,10 @@ a.category-badge > span.badge:hover {
         left: 0;
         z-index: 1030;
     }
-
-
+    .product-name{
+        font-size:80%;
+        overflow-wrap: normal;
+    }
 
     .header-container {
         padding-top: 164px;

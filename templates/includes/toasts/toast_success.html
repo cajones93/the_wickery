@@ -1,9 +1,9 @@
 <div class="toast custom-toast rounded-0 border-0" data-autohide="false">
-    <div class="w-100 toast-capper bg-success"></div> 
+    <div class="w-100 toast-capper bg-success"></div>
     <div class="toast-header bg-white text-dark py-2">
         <strong class="mr-auto d-flex align-items-center"><i class="fas fa-check-circle text-success mr-2"></i>Success!</strong>
         <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="toast-body bg-white pt-2 pb-2">
@@ -14,52 +14,52 @@
         </div>
         {% if grand_total and not on_profile_page and not on_enquiry_page %}
         <hr class="mt-0 mb-2">
-            <p class="font-weight-bold text-black mb-2 d-flex align-items-center">
-                <i class="fas fa-briefcase mr-2"></i>Your Bag ({{ product_count }})
-            </p>
-            <div class="bag-notification-wrapper border-top border-bottom py-2 mb-2">
-                {% for item in bag_items %}
-                    <div class="row no-gutters mb-2 {% if forloop.last %}mb-0{% endif %} align-items-center">
-                        <div class="col-3">
-                            {% if item.product.image %}
-                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                            {% else %}
-                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.webp" alt="{{ item.product.name }}">
-                            {% endif %}
-                        </div>
-                        <div class="col-9 pl-2">
-                            <p class="my-0 small"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 smaller">Size: {% if item.product.has_sizes %}{{ item.size.friendly_name|capfirst }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 smaller">Wax: {{ item.wax.friendly_name|capfirst }}</p>
-                            <p class="my-0 smaller">Scent: {% if item.product.has_scents %}{{ item.scent.friendly_name|capfirst }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 smaller text-muted">Qty: {{ item.quantity }}</p>
-                            <p class="my-0 small font-weight-bold">£{{ item.lineitem_total|floatformat:2 }}</p>
-                        </div>
-                    </div>
-                    {% if not forloop.last %}
-                    <hr class="w-50">
+        <p class="font-weight-bold text-black mb-2 d-flex align-items-center">
+            <i class="fas fa-briefcase mr-2"></i>Your Bag ({{ product_count }})
+        </p>
+        <div class="bag-notification-wrapper border-top border-bottom py-2 mb-2">
+            {% for item in bag_items %}
+            <div class="row no-gutters mb-2 {% if forloop.last %}mb-0{% endif %} align-items-center">
+                <div class="col-3">
+                    {% if item.product.image %}
+                    <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                    {% else %}
+                    <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.webp" alt="{{ item.product.name }}">
                     {% endif %}
-                {% endfor %}
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <p class="font-weight-bold mt-1 mb-1 text-black">
-                        Total{% if free_delivery_delta > 0 %} (Excl. delivery){% endif %}: 
-                        <span class="float-right">£{{ total|floatformat:2 }}</span>
-                    </p>
-                    {% if free_delivery_delta > 0 %}
-                        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center small rounded">
-                            <i class="fas fa-truck mr-1"></i> Spend <strong>£{{ free_delivery_delta|floatformat:2 }}</strong> more to get free next day delivery!
-                        </p>
-                    {% endif %}
-                    <a href="{% url 'view_bag' %}" class="btn green-background btn-block rounded-0 mt-2">
-                        <span class="text-uppercase">Go To Secure Checkout</span>
-                        <span class="icon">
-                            <i class="fas fa-lock ml-1"></i>
-                        </span>
-                    </a>
+                </div>
+                <div class="col-9 pl-2">
+                    <p class="my-0 small"><strong>{{ item.product.name }}</strong></p>
+                    <p class="my-0 smaller">Size: {% if item.product.has_sizes %}{{ item.size.friendly_name|capfirst }}{% else %}N/A{% endif %}</p>
+                    <p class="my-0 smaller">Wax: {{ item.wax.friendly_name|capfirst }}</p>
+                    <p class="my-0 smaller">Scent: {% if item.product.has_scents %}{{ item.scent.friendly_name|capfirst }}{% else %}N/A{% endif %}</p>
+                    <p class="my-0 smaller text-muted">Qty: {{ item.quantity }}</p>
+                    <p class="my-0 small font-weight-bold">£{{ item.lineitem_total|floatformat:2 }}</p>
                 </div>
             </div>
+            {% if not forloop.last %}
+            <hr class="w-50">
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="font-weight-bold mt-1 mb-1 text-black">
+                    Total{% if free_delivery_delta > 0 %} (Excl. delivery){% endif %}: 
+                    <span class="float-right">£{{ total|floatformat:2 }}</span>
+                </p>
+                {% if free_delivery_delta > 0 %}
+                <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center small rounded">
+                    <i class="fas fa-truck mr-1"></i> Spend <strong>£{{ free_delivery_delta|floatformat:2 }}</strong> more to get free next day delivery!
+                </p>
+                {% endif %}
+                <a href="{% url 'view_bag' %}" class="btn green-background btn-block rounded-0 mt-2">
+                <span class="text-uppercase">Go To Secure Checkout</span>
+                <span class="icon">
+                <i class="fas fa-lock ml-1"></i>
+                </span>
+                </a>
+            </div>
+        </div>
         {% endif %}
     </div>
 </div>

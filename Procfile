@@ -1,0 +1,1 @@
+web: gunicorn the_wickery.wsgi:application

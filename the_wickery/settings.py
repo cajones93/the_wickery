@@ -31,8 +31,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['127.0.0.1',  # Local preview
                  'localhost',  # Listen for stripe webhooks
-                 'the-wickery-d8e65af69641.herokuapp.com',
-                 '*', # Heroku app
+                 'the-wickery-d8e65af69641.herokuapp.com',  # Heroku app
                  ]
 
 

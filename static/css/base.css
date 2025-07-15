@@ -127,7 +127,8 @@ input[name='q']::placeholder {
     min-width: 260px;
     border-color: black;
     border-radius: 25px;
-
+    width: 80%;
+    margin: 0 auto;
 }
 
 .hero-card {
@@ -507,6 +508,10 @@ a.category-badge > span.badge:hover {
         top: 130px;
     }
 
+    .shop-now-button {
+        width: 60%;
+    }
+
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -518,4 +523,9 @@ a.category-badge > span.badge:hover {
     body {
         height: calc(100vh - 116px);
     }
+}
+
+/* XL SIZE */
+@media (min-width: 1200px) {
+
 }

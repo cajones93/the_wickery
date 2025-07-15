@@ -50,7 +50,7 @@
 
 <body>
   <header class="container-fluid fixed-top">
-    <div id="topnav" class="row bg-white pt-1 pb-1 d-none d-lg-flex align-items-center">
+    <div id="topnav" class="row bg-white pt-2 pb-2 d-none d-lg-flex align-items-center">
       <div class="col-12 offset-lg-6 col-lg-3 my-0 py-0 logo-section">
         <a href="{% url 'home' %}" class="nav-link mx-auto p-0">
           
@@ -58,14 +58,14 @@
         </a>
       </div>
       <div class="col-12 col-lg-3">
-      <div class="row lh-1">
-      <div class="col-12 mt-0 mb-1 py-0 text-center text-lg-right">
+      <div class="row">
+      <div class="col-12 mt-0 mb-2 py-1 text-center text-lg-right">
         <ul class="list-inline list-unstyled my-0">
           <li class="list-inline-item dropdown">
             <a class="text-black nav-link px-1 py-0" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               <div class="text-center nav-icon-colour">
-                <div><i class="fas fa-id-badge fa-sm"></i></div>
+                <div><i class="fas fa-id-badge fa-lg"></i></div>
                 <p class="my-0 font-weight-bold d-none d-md-inline">My Account</p>
               </div>
             </a>
@@ -83,14 +83,14 @@
             </div>
           </li>
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link px-1 py-0" href="{% url 'view_bag' %}">
+            <a class="text-info font-weight-bold nav-link px-1 py-0" href="{% url 'view_bag' %}">
               <div class="text-center nav-icon-colour">
-                <div><i class="fas fa-briefcase fa-sm"></i></div>
+                <div><i class="fas fa-briefcase fa-lg"></i></div>
                 <p class="my-0 d-inline">
                   {% if grand_total %}
                   £{{ grand_total|floatformat:2 }}
                   {% else %}
-                  £0.00
+                  Empty
                   {% endif %}
                 </p>
               </div>
@@ -120,7 +120,7 @@
 
       </div>
     </div>
-    <div class="row bg-white navbar-container-row">
+    <div class="row bg-white navbar-container-row pt-2 pb-2">
       <nav class="navbar navbar-expand-lg navbar-light w-100 py-0">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
           aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">

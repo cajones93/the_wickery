@@ -473,6 +473,10 @@ a.category-badge > span.badge:hover {
     background-color: var(--greenish-color);
 }
 
+.error-image{
+    max-height: 300px;
+}
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {

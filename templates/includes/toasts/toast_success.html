@@ -9,7 +9,7 @@
     <div class="toast-body bg-white pt-2 pb-2">
         <div class="row">
             <div class="col-12">
-                <p class="mb-2">{{ message }}</p>
+                <p class="mb-2">{{ message|linebreaksbr }}</p>
             </div>
         </div>
         {% if grand_total and not on_profile_page and not on_enquiry_page %}

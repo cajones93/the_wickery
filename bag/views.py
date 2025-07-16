@@ -78,7 +78,7 @@ def add_to_bag(request, item_id):
     if new_total_quantity > MAX_BAG_ITEM_QUANTITY:
         messages.error(
             request, 
-            f'You cannot add more than {MAX_BAG_ITEM_QUANTITY} of "{message_string}" to your bag. '
+            f'You cannot add more than {MAX_BAG_ITEM_QUANTITY} of "{message_string}" to your bag.\n'
             f'You currently have {current_quantity_in_bag} and tried to add {quantity}.'
         )
         return redirect(redirect_url)
@@ -117,9 +117,9 @@ def adjust_bag(request, item_id):
     if item_id in bag and isinstance(bag[item_id], dict) and 'items_by_options' in bag[item_id]:
         if options_key in bag[item_id]['items_by_options']:
             if quantity > 99:
-                messages.error(request, f'You tried to add {quantity} of "{message_string}" to your bag. '
-                               f'The maximum quantity is 99. '
-                               f'Please enter a quantity less than 99. ')
+                messages.error(request, f'You tried to add {quantity} of "{message_string}" to your bag.\n'
+                               f'The maximum quantity is 99.\n'
+                               f'Please enter a quantity less than 99.')
             elif quantity > 0:
                 bag[item_id]['items_by_options'][options_key] = quantity
                 messages.success(request, f'Updated "{message_string}" quantity to {quantity}')

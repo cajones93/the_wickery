@@ -3,6 +3,8 @@ from django.contrib import messages
 
 from products.models import Product, WaxType, Scent, CandleSize
 
+MAX_BAG_ITEM_QUANTITY = 99
+
 def view_bag(request):
     """ A view that renders the bag contents page """
 
@@ -67,6 +69,21 @@ def add_to_bag(request, item_id):
 
     options_key, message_string = get_product_and_options(request, item_id)
 
+    current_quantity_in_bag = 0
+    if item_id in bag and 'items_by_options' in bag[item_id] and options_key in bag[item_id]['items_by_options']:
+        current_quantity_in_bag = bag[item_id]['items_by_options'][options_key]
+
+    new_total_quantity = current_quantity_in_bag + quantity
+
+    if new_total_quantity > MAX_BAG_ITEM_QUANTITY:
+        messages.error(
+            request, 
+            f'You cannot add more than {MAX_BAG_ITEM_QUANTITY} of "{message_string}" to your bag. '
+            f'You currently have {current_quantity_in_bag} and tried to add {quantity}.'
+        )
+        return redirect(redirect_url)
+
+
     # Add new item to bag and initialise to dictionary
     if item_id not in bag:
         bag[item_id] = {'items_by_options': {}}
@@ -92,16 +109,18 @@ def adjust_bag(request, item_id):
         quantity = int(request.POST.get('quantity'))
     except (ValueError, TypeError):
         quantity = 0
-        
+
     bag = request.session.get('bag', {})
 
     options_key, message_string = get_product_and_options(request, item_id)
-    
-    
-    print(f'adjust options_key: {options_key}')
+
     if item_id in bag and isinstance(bag[item_id], dict) and 'items_by_options' in bag[item_id]:
         if options_key in bag[item_id]['items_by_options']:
-            if quantity > 0:
+            if quantity > 99:
+                messages.error(request, f'You tried to add {quantity} of "{message_string}" to your bag. '
+                               f'The maximum quantity is 99. '
+                               f'Please enter a quantity less than 99. ')
+            elif quantity > 0:
                 bag[item_id]['items_by_options'][options_key] = quantity
                 messages.success(request, f'Updated "{message_string}" quantity to {quantity}')
             else:

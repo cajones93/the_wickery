@@ -15,7 +15,8 @@ def enquiry(request):
         
         if form.is_valid():
             message = form.save()
-            messages.success(request, 'Your message has been sent successfully! We will get back to you shortly.')
+            messages.success(request, f'Your message has been sent successfully!\n'
+                             f'We will get back to you shortly.')
 
             return redirect(reverse('enquiry'))
         else:

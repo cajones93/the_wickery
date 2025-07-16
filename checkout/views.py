@@ -28,7 +28,7 @@ def cache_checkout_data(request):
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be processed right now.\n'
-            f'Please try again later.')
+                       'Please try again later.')
         return HttpResponse(content=e, status=400)
 
 
@@ -60,20 +60,19 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    
-                    if isinstance(item_data, dict) and 'items_by_options' in item_data:    
+
+                    if isinstance(item_data, dict) and 'items_by_options' in item_data:
                         for options_key, quantity in item_data['items_by_options'].items():
-                            
+
                             selected_size_obj = None
                             selected_scent_obj = None
                             selected_wax_type_obj = None
-                            size_multiplier = Decimal('1.00') 
+                            size_multiplier = Decimal('1.00')
                             wax_multiplier = Decimal('1.00')
 
-                            
                             if options_key != 'no_options':
                                 parts = options_key.split('_')
-                                
+
                                 for i in range(len(parts)):
                                     if parts[i] == 'size' and i + 1 < len(parts):
                                         size_pk = parts[i+1]
@@ -86,9 +85,9 @@ def checkout(request):
                                         wax_pk = parts[i+1]
                                         selected_wax_type_obj = get_object_or_404(WaxType, pk=wax_pk)
                                         wax_multiplier = selected_wax_type_obj.price_modifier or 1.00
-                                                                    
+
                             lineitem_subtotal = product.price * size_multiplier * wax_multiplier
-                            
+
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -98,7 +97,7 @@ def checkout(request):
                                 selected_wax_type=selected_wax_type_obj,
                                 lineitem_subtotal=lineitem_subtotal,
                             )
-                            
+
                             order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
@@ -111,15 +110,15 @@ def checkout(request):
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, f'There was an error with your form.\n'
-                f'Please double check your information.')
+            messages.error(request, 'There was an error with your form.\n'
+                                    'Please double check your information.')
 
     else:
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
             return redirect(reverse('products'))
-        
+
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
@@ -150,8 +149,8 @@ def checkout(request):
             order_form = OrderForm()
 
         if not stripe_public_key:
-            messages.warning(request, f'Stripe public key is missing.\n'
-                f'Did you forget to set it in your environment?')
+            messages.warning(request, 'Stripe public key is missing.\n'
+                             'Did you forget to set it in your environment?')
 
         template = 'checkout/checkout.html'
         context = {
@@ -163,17 +162,16 @@ def checkout(request):
         return render(request, template, context)
 
 
-
 def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
+
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
@@ -194,9 +192,9 @@ def checkout_success(request, order_number):
                 user_profile_form.save()
 
     messages.success(request, f'Order successfully processed!\n'
-        f'Your order number is {order_number}.\n' 
-        f'A confirmation email will be sent to {order.email}.')
-    
+                     f'Your order number is {order_number}.\n'
+                     f'A confirmation email will be sent to {order.email}.')
+
     if 'bag' in request.session:
         del request.session['bag']
 

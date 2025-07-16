@@ -5,6 +5,7 @@ from products.models import Product, WaxType, Scent, CandleSize
 
 MAX_BAG_ITEM_QUANTITY = 99
 
+
 def view_bag(request):
     """ A view that renders the bag contents page """
 
@@ -55,7 +56,7 @@ def get_product_and_options(request, item_id):
         options_key = 'no_options'
     else:
         options_key = '_'.join(options)
-    
+
     return options_key, message_string
 
 
@@ -77,12 +78,11 @@ def add_to_bag(request, item_id):
 
     if new_total_quantity > MAX_BAG_ITEM_QUANTITY:
         messages.error(
-            request, 
+            request,
             f'You cannot add more than {MAX_BAG_ITEM_QUANTITY} of "{message_string}" to your bag.\n'
             f'You currently have {current_quantity_in_bag} and tried to add {quantity}.'
         )
         return redirect(redirect_url)
-
 
     # Add new item to bag and initialise to dictionary
     if item_id not in bag:
@@ -139,9 +139,8 @@ def remove_from_bag(request, item_id):
 
     bag = request.session.get('bag', {})
 
+    product = get_object_or_404(Product, pk=item_id)
     options_key, message_string = get_product_and_options(request, item_id)
-    
-    print(f'Delete options: {options_key}')
 
     if options_key == 'no_options':
         bag.pop(item_id)
@@ -152,4 +151,3 @@ def remove_from_bag(request, item_id):
 
     request.session['bag'] = bag
     return HttpResponse(status=200)
-

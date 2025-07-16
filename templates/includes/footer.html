@@ -1,0 +1,80 @@
+<footer style="background-color: var(--black-color); color: var(--isabelline-color);" class="pt-5 pb-4 mt-5">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+
+            <div class="col-md-3 mx-auto mt-3">
+                <h5 class="footer-heading mb-4 font-weight-bold">The Wickery</h5>
+                <p class="mb-1">Where every flame tells a natural story</p>
+                <hr class="short bg-white mt-0 mb-1">
+                <p class="small">
+                    Crafting exquisite candles for every moment.
+                    Hand-poured with passion, designed to illuminate your life.
+                </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="footer-heading mb-4 font-weight-bold">Quick Links</h5>
+                <p>
+                    <a href="{% url 'products' %}" class="text-white"><i class="fa-solid fa-store fa-sm mr-2"></i></i>Products</a>
+                </p>
+                <p>
+                    <a href="{% url 'enquiry' %}" class="text-white"><i class="fa-solid fa-envelope fa-sm mr-2"></i>Contact Us</a>
+                </p>
+                <p>
+                    <a href="{% url 'privacy_policy' %}" class="text-white"><i class="fa-regular fa-file-lines fa-sm mr-2"></i>Privacy Policy</a>
+                </p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 mx-auto mt-3">
+                <h5 class="footer-heading mb-4 font-weight-bold">Contact</h5>
+                <p class="small" style="font-family: var(--body-font);">
+                    <i class="fas fa-home mr-3"></i> 123 Candle Lane, Wickerton, UK
+                </p>
+                <p class="small" style="font-family: var(--body-font);">
+                    <i class="fas fa-envelope mr-3"></i> info@thewickery.com
+                </p>
+                <p class="small" style="font-family: var(--body-font);">
+                    <i class="fas fa-phone mr-3"></i> +44 20 1234 5678
+                </p>
+            </div>
+
+            <div class="col-md-3 col-lg-2 mx-auto mt-3">
+                <h5 class="footer-heading mb-4 font-weight-bold">Follow Us</h5>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="mr-3">
+                        <i class="fab fa-facebook-f fa-lg text-white"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="mr-3">
+                        <i class="fab fa-twitter fa-lg text-white"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="mr-3">
+                        <i class="fab fa-instagram fa-lg text-white"></i>
+                    </a>
+                    <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-pinterest-p fa-lg text-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="mb-4 bg-white">
+
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 text-center text-md-left">
+                <p class="small mb-0">
+                    &copy; <span id="current-year"></span> The Wickery. All rights reserved.
+                </p>
+            </div>
+            <div class="col-12 col-md-6 text-center text-md-right mt-3 mt-md-0">
+                <i class="fab fa-cc-visa fa-lg mr-2"></i>
+                <i class="fab fa-cc-mastercard fa-lg mr-2"></i>
+                <i class="fab fa-cc-amex fa-lg mr-2"></i>
+                <i class="fab fa-cc-discover fa-lg"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>

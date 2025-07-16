@@ -21,6 +21,11 @@
     color: white;
 }
 
+.isabelline-background{
+    background-color: var(--isabelline-color);
+    color: black;
+}
+
 .blue-background{
     background-color: var(--lavender-color);
     border: 1px solid black;
@@ -475,6 +480,18 @@ a.category-badge > span.badge:hover {
 
 .error-image{
     max-height: 300px;
+}
+
+/* -------------- Footer */
+
+.footer-heading{
+    color: var(--lavender-color);
+    font-family: var(--title-font);
+}
+
+.short{
+    width: 50%;
+    margin-left: 0;
 }
 
 /* fixed top navbar only on medium and up */

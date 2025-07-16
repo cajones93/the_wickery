@@ -491,10 +491,14 @@ a.category-badge > span.badge:hover {
 
 .short{
     width: 50%;
-    margin-left: 0;
 }
 
-/* fixed top navbar only on medium and up */
+@media (min-width: 768px) {
+    .short{
+        margin-left: 0;
+    }
+}
+
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;

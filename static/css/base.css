@@ -472,6 +472,10 @@ a.category-badge > span.badge:hover {
     max-height: 300px;
 }
 
+.error-container{
+    margin-top: 50px;
+}
+
 /* -------------- Footer */
 
 .footer-heading{
@@ -541,6 +545,10 @@ a.category-badge > span.badge:hover {
 
     .shop-now-button {
         width: 60%;
+    }
+
+    .error-container{
+        margin-top: 120px;
     }
 
 }

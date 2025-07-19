@@ -377,15 +377,6 @@ a.category-badge > span.badge:hover {
     overflow-y: auto;
 }
 
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
-}
-
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
@@ -498,9 +489,19 @@ a.category-badge > span.badge:hover {
     width: 50%;
 }
 
+/* -------------------------------- Media Queries */
+
 @media (min-width: 768px) {
     .short{
         margin-left: 0;
+    }
+
+    .hero-card{
+        min-width: 400px;
+    }
+
+    .logo-img{
+        min-width: 350;
     }
 }
 
@@ -591,7 +592,8 @@ a.category-badge > span.badge:hover {
     }
 }
 
-/* XL SIZE */
 @media (min-width: 1200px) {
-
+  .container {
+    max-width: 80%;
+  }
 }

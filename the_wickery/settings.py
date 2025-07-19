@@ -70,12 +70,9 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware', removed for responsiveness checking sites
 ]
 
-
-# Allow site to run in a frame (responsiveness checking)
-X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ROOT_URLCONF = 'the_wickery.urls'
 

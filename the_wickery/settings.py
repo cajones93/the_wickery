@@ -73,6 +73,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+# Allow site to run in a frame (responsiveness checking)
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ROOT_URLCONF = 'the_wickery.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

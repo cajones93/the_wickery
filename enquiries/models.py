@@ -6,7 +6,6 @@ class Enquiry(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=200, blank=True, null=True)
     message = models.TextField()
-    # You might want to distinguish between general enquiries and bulk orders
     MESSAGE_TYPES = (
         ('enquiry', 'General Enquiry'),
         ('bulk', 'Bulk Order Enquiry'),
@@ -14,7 +13,6 @@ class Enquiry(models.Model):
         ('other', 'Other'),
     )
     message_type = models.CharField(max_length=20, choices=MESSAGE_TYPES, default='enquiry')
-    
     timestamp = models.DateTimeField(auto_now_add=True)
     is_read = models.BooleanField(default=False)
 

@@ -142,15 +142,20 @@ input[name='q']::placeholder {
     margin: 0 auto;
 }
 
+.content-wrapper{
+    min-height: calc(100vh - 200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .hero-card {
-    
     background: white;
     border-radius: 10px;
     transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     padding: 15px;
     min-width: 300px;
     text-align: center;
-    margin-top: 50px;
 }
 
 .hero-shadow {

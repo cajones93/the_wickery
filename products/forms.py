@@ -1,6 +1,7 @@
 from django import forms
 from .widgets import CustomClearableFileInput
 from .models import Product, Category, Scent, CandleSize, WaxType
+from django.contrib import messages
 
 
 class ProductForm(forms.ModelForm):
@@ -71,7 +72,27 @@ class ProductForm(forms.ModelForm):
         self.fields['available_wax_types'].choices = wax_friendly_names
         self.fields['available_sizes'].choices = size_friendly_names
         self.fields['available_scents'].choices = scent_friendly_names
-        
-            
+
+
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        # Available scents validation
+        has_scents = cleaned_data.get('has_scents')
+        available_scents = cleaned_data.get('available_scents')
+
+        if has_scents and (not available_scents or len(available_scents) == 0):
+            self.add_error('available_scents', 'Please select at least one scent when "Has Scents" is checked.')
+
+        # Available sizes validation
+        has_sizes = cleaned_data.get('has_sizes')
+        available_sizes = cleaned_data.get('available_sizes')
+
+        if has_sizes and (not available_sizes or len(available_sizes) == 0):
+            self.add_error('available_sizes', 'Please select at least one size when "Has Sizes" is checked.')
+        
+        return cleaned_data

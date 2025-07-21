@@ -7,7 +7,7 @@ Return to the [README.md](README.md) file.
 - [AUTOMATED TESTING](#automated-testing)
   - [HTML](#html)
   - [CSS](#css)
-  - [JavaScript](#javascript)
+  - [JS and jQuery](#js-and-jquery)
   - [Python](#python)
   - [Lighthouse](#lighthouse)
 - [MANUAL TESTING](#manual-testing)
@@ -49,7 +49,7 @@ The recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) was 
 | profile.css  | Pass: No Errors |
 | checkout.css | Pass: No Errors |
 
-### JS / jQuery
+### JS and jQuery
 
 jQuery was validated using [jQuery Validator](https://www.utilities-online.info/jquery-validator).
 
@@ -133,10 +133,8 @@ The only errors returned were 'line too long' errors which have been excluded fr
 
 ### Lighthouse
 
-All pages were checked with lighthouse to identify any issues. Each page was checked in mobile and desktop sizes.
-Add Post page 'Accessibility' is related to the Summernote field iFrame not having a title.
-404 page 'Best Practices' and 'SEO' are lower due to the 404 error.
-When trying to get lighthouse scores, I kept getting different values even when immediately running the test again. 
+All pages were checked with lighthouse to identify any issues.
+Best Practices is impacted by the stripe cookie which lighthouse doesn't seem to like.
 
 
 | Page              | Screenshot                                                                        |

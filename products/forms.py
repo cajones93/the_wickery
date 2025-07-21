@@ -74,10 +74,6 @@ class ProductForm(forms.ModelForm):
         self.fields['available_scents'].choices = scent_friendly_names
 
 
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
-
-
     def clean(self):
         cleaned_data = super().clean()
 

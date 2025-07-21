@@ -129,12 +129,11 @@
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-3" value="Add to Bag">
-                                </div>
                             </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            {% endwith %}
-                            {% endwith %}
                         </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        {% endwith %}
+                        {% endwith %}
                     </form>
                 </div>
             </div>
@@ -148,7 +147,7 @@
 
 {% include 'products/includes/quantity_input_script.html' %}
 
-<script type="text/javascript">
+<script>
     
     // Get elements
     const baseProductPrice = parseFloat(document.getElementById('base-product-price').textContent);

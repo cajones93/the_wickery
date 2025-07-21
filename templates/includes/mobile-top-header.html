@@ -1,4 +1,5 @@
 {% load static %}
+<ul>
 <li class="list-inline-item">
     <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center nav-icon-colour">
@@ -21,19 +22,23 @@
         </form>
     </div>
 </li>
+</ul>
+<ul>
 <li class="list-inline-item d-none d-sm-inline d-lg-none">
         <a href="{% url 'home' %}" class="nav-link main-logo-link mx-auto">
           <img class="logo-main-sm" src="{% static 'images/logo-sm.png' %}" alt="The Wickery TW Logo">
         </a>
 </li>
+</ul>
+<ul>
 <li class="list-inline-item dropdown">
-    <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options-mob" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center nav-icon-colour">
             <div><i class="fas fa-user fa-lg"></i></div>
             <p class="my-0 font-weight-bold">My Account</p>
         </div>
     </a>
-    <div class="dropdown-menu border-0 aria-labelledby="user-options">
+    <div class="dropdown-menu border-0" aria-labelledby="user-options-mob">
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
                 <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
@@ -46,6 +51,8 @@
         {% endif %}
     </div>
 </li>
+</ul>
+<ul>
 <li class="list-inline-item">
     <a class="text-primary font-weight-bold nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
         <div class="text-center nav-icon-colour">
@@ -60,3 +67,4 @@
         </div>
     </a>
 </li>
+</ul>

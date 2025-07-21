@@ -63,3 +63,70 @@ jQuery was validated using [jQuery Validator](https://www.utilities-online.info/
 | edit_product.html     | Pass: No Errors |
 | product_detail.html   | Pass: No Errors |
 | profile.html          | Pass: No Errors |
+
+### Python
+
+The recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) was used to validate all of my Python files.
+The only errors returned were 'line too long' errors which have been excluded from the notes in below tables.
+
+#### Validation For The_Wickery App
+
+| File        | Notes           |
+| ----------- | --------------- |
+| settings.py | Pass: No Errors |
+| urls.py     | Pass: No Errors |
+
+#### Validation For Home App
+
+| File     | Notes           |
+| -------- | --------------- |
+| urls.py  | Pass: No Errors |
+| views.py | Pass: No Errors |
+
+#### Validation For Bag App
+
+| File          | Notes           |
+| ---------     | --------------- |
+| urls.py       | Pass: No Errors |
+| views.py      | Pass: No Errors |
+| contexts.py   | Pass: No Errors |
+
+#### Validation For Checkout App
+
+| File                  | Notes           |
+| ---------             | --------------- |
+| forms.py              | Pass: No Errors |
+| models.py             | Pass: No Errors |
+| signals.py            | Pass: No Errors |
+| urls.py               | Pass: No Errors |
+| views.py              | Pass: No Errors |
+| webhook_handler.py    | Pass: No Errors |
+| webhooks.py           | Pass: No Errors |
+
+#### Validation For Enquiries App
+
+| File          | Notes           |
+| ---------     | --------------- |
+| urls.py       | Pass: No Errors |
+| views.py      | Pass: No Errors |
+| forms.py      | Pass: No Errors |
+| models.py     | Pass: No Errors |
+
+#### Validation For Products App
+
+| File          | Notes           |
+| ---------     | --------------- |
+| urls.py       | Pass: No Errors |
+| views.py      | Pass: No Errors |
+| forms.py      | Pass: No Errors |
+| models.py     | Pass: No Errors |
+| widgets.py    | Pass: No Errors |
+
+#### Validation For Profiles App
+
+| File          | Notes           |
+| ---------     | --------------- |
+| urls.py       | Pass: No Errors |
+| views.py      | Pass: No Errors |
+| forms.py      | Pass: No Errors |
+| models.py     | Pass: No Errors |

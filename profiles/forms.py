@@ -23,12 +23,17 @@ class UserProfileForm(forms.ModelForm):
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            if field != 'default_country':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
+
+        for field_name, field_object in self.fields.items():
+            if field_name == 'default_country':
+                field_object.widget.attrs['aria-label'] = 'Country'
+            else:
+                if field_object.required:
+                    placeholder = f'{placeholders[field_name]} *'
                 else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
-            self.fields[field].label = False
+                    placeholder = placeholders[field_name]
+                field_object.widget.attrs['placeholder'] = placeholder
+                field_object.widget.attrs['aria-label'] = placeholder
+
+            field_object.widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
+            field_object.label = False

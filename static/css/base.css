@@ -8,7 +8,32 @@
     --greenish-color: #8fa898;
 }
 
-/* ----------------- Colours */
+/* ----------------- Global styles */
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url('/media/homepage_background_cropped.jpg') no-repeat left fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: var(--body-font), 'sans-serif';
+}
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+p a{
+    text-decoration: underline;
+}
+
+
+/* ----------------- Colours and backgrounds*/
 
 .green-background{
     background-color: var(--greenish-color);
@@ -47,26 +72,6 @@
 
 .bg-black {
     background: #000 !important;
-}
-
-/* ----------------- Body */
-
-html {
-    height: 100%;
-}
-
-body {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat left fixed;
-    background-size: cover;
-    height: calc(100vh - 164px);
-    color: #555;
-    font-family: var(--body-font), 'sans-serif';
-}
-
-.site-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 80vh;
 }
 
 
@@ -198,6 +203,7 @@ input[name='q']::placeholder {
     bottom: 10px;
     right: 10px;
 }
+
 .btt-link,
 .update-link,
 .remove-item  {
@@ -439,9 +445,20 @@ a.category-badge > span.badge:hover {
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+	color: #0056B3; /* text-info */
 }
 
+a{
+    color: #0056B3;
+}
+
+.text-info{
+    color: #0056B3 !important;
+}
+
+.text-danger{
+    color: #A91E2Cfc !important;
+}
 /* Product Form */
 
 .btn-file {
@@ -490,6 +507,7 @@ a.category-badge > span.badge:hover {
 /* -------------- Footer */
 
 .footer-heading{
+    font-size: 1.25rem;
     color: var(--lavender-color);
     font-family: var(--title-font);
 }
@@ -546,8 +564,8 @@ a.category-badge > span.badge:hover {
     }
 
     #enquiries-link{
-    border: double black;
-    padding: 5px 10px;
+        border: double black;
+        padding: 5px 10px;
     }
 
     .order-summary{
@@ -613,7 +631,7 @@ a.category-badge > span.badge:hover {
 }
 
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container {
+        max-width: 80%;
+    }
 }

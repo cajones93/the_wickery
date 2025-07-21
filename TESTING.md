@@ -130,3 +130,28 @@ The only errors returned were 'line too long' errors which have been excluded fr
 | views.py      | Pass: No Errors |
 | forms.py      | Pass: No Errors |
 | models.py     | Pass: No Errors |
+
+### Lighthouse
+
+All pages were checked with lighthouse to identify any issues. Each page was checked in mobile and desktop sizes.
+Add Post page 'Accessibility' is related to the Summernote field iFrame not having a title.
+404 page 'Best Practices' and 'SEO' are lower due to the 404 error.
+When trying to get lighthouse scores, I kept getting different values even when immediately running the test again. 
+
+
+| Page              | Screenshot                                                                        |
+| --------------    | ----------------------------------------------------------------------------------|
+| Home              | ![screenshot](documentation\testing\lighthouse\lighthouse-home.png)               |
+| Products          | ![screenshot](documentation\testing\lighthouse\lighthouse-products.png)           |
+| Product Detail    | ![screenshot](documentation\testing\lighthouse\lighthouse-product-detail.png)     |
+| Add Product       | ![screenshot](documentation\testing\lighthouse\lighthouse-add-product.png)        |
+| Edit Product      | ![screenshot](documentation\testing\lighthouse\lighthouse-edit-product.png)       |
+| Bag               | ![screenshot](documentation\testing\lighthouse\lighthouse-bag.png)                |
+| Checkout          | ![screenshot](documentation\testing\lighthouse\lighthouse-checkout.png)           |
+| Checkout Success  | ![screenshot](documentation\testing\lighthouse\lighthouse-checkout-success.png)   |
+| Profile           | ![screenshot](documentation\testing\lighthouse\lighthouse-profile.png)            |
+| Enquiries         | ![screenshot](documentation\testing\lighthouse\lighthouse-enquiries.png)          |
+| Privacy Policy    | ![screenshot](documentation\testing\lighthouse\lighthouse-privacy-policy.png)     |
+| Login             | ![screenshot](documentation\testing\lighthouse\lighthouse-login.png)              |
+| Sign Up           | ![screenshot](documentation\testing\lighthouse\lighthouse-sign-up.png)            |
+| Logout            | ![screenshot](documentation\testing\lighthouse\lighthouse-logout.png)             |

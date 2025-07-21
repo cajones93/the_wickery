@@ -12,38 +12,38 @@ def bag_contents(request):
 
     for item_id, item_data in bag.items():
 
-            product = Product.objects.get(pk=item_id)
+        product = Product.objects.get(pk=item_id)
 
-            if 'items_by_options' in item_data and isinstance(item_data['items_by_options'], dict):
-                for options_key, quantity in item_data['items_by_options'].items():
-                    if quantity > 0:
-                        size_obj = None
-                        scent_obj = None
-                        wax_obj = None
-                        size_multiplier = Decimal('1.00')
-                        wax_multiplier = Decimal('1.00')
-                        
-                        if options_key != 'no_options':
-                            parts = options_key.split('_')
-                            for i in range(len(parts)):
-                                    if parts[i] == 'size' and i + 1 < len(parts):
-                                        size_pk = parts[i+1]
-                                        size_obj = CandleSize.objects.get(pk=size_pk)
-                                        size_multiplier = size_obj.price_modifier or Decimal('1.00')
-                                    elif parts[i] == 'scent' and i + 1 < len(parts):
-                                        scent_pk = parts[i+1]
-                                        scent_obj = Scent.objects.get(pk=scent_pk)
-                                    elif parts[i] == 'wax' and i + 1 < len(parts):
-                                        wax_pk = parts[i+1]
-                                        wax_obj = WaxType.objects.get(pk=wax_pk)
-                                        wax_multiplier = wax_obj.price_modifier or Decimal('1.00')
+        if 'items_by_options' in item_data and isinstance(item_data['items_by_options'], dict):
+            for options_key, quantity in item_data['items_by_options'].items():
+                if quantity > 0:
+                    size_obj = None
+                    scent_obj = None
+                    wax_obj = None
+                    size_multiplier = Decimal('1.00')
+                    wax_multiplier = Decimal('1.00')
+
+                    if options_key != 'no_options':
+                        parts = options_key.split('_')
+                        for i in range(len(parts)):
+                            if parts[i] == 'size' and i + 1 < len(parts):
+                                size_pk = parts[i+1]
+                                size_obj = CandleSize.objects.get(pk=size_pk)
+                                size_multiplier = size_obj.price_modifier or Decimal('1.00')
+                            elif parts[i] == 'scent' and i + 1 < len(parts):
+                                scent_pk = parts[i+1]
+                                scent_obj = Scent.objects.get(pk=scent_pk)
+                            elif parts[i] == 'wax' and i + 1 < len(parts):
+                                wax_pk = parts[i+1]
+                                wax_obj = WaxType.objects.get(pk=wax_pk)
+                                wax_multiplier = wax_obj.price_modifier or Decimal('1.00')
 
                         line_subtotal = product.price * size_multiplier * wax_multiplier
                         lineitem_total = line_subtotal * quantity
-                        
+
                         total += lineitem_total
                         product_count += quantity
-                        
+
                         bag_items.append({
                             'item_id': item_id,
                             'quantity': quantity,

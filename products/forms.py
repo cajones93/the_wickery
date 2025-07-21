@@ -21,7 +21,7 @@ class ProductForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
         required=True
     )
-    
+
     has_scents = forms.BooleanField(
         widget=forms.CheckboxInput,
         required=False,
@@ -49,18 +49,18 @@ class ProductForm(forms.ModelForm):
             'available_sizes',
             'available_wax_types',
         ]
-        
+
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
         # get objects
         categories = Category.objects.all()
         available_wax_types = WaxType.objects.all()
         available_sizes = CandleSize.objects.all()
         available_scents = Scent.objects.all()
-        
+
         # get friendly names
         cat_friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
         wax_friendly_names = [(w.id, w.get_friendly_name()) for w in available_wax_types]
@@ -72,7 +72,6 @@ class ProductForm(forms.ModelForm):
         self.fields['available_wax_types'].choices = wax_friendly_names
         self.fields['available_sizes'].choices = size_friendly_names
         self.fields['available_scents'].choices = scent_friendly_names
-
 
     def clean(self):
         cleaned_data = super().clean()
@@ -90,5 +89,5 @@ class ProductForm(forms.ModelForm):
 
         if has_sizes and (not available_sizes or len(available_sizes) == 0):
             self.add_error('available_sizes', 'Please select at least one size when "Has Sizes" is checked.')
-        
+
         return cleaned_data

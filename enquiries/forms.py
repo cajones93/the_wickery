@@ -1,10 +1,11 @@
 from django import forms
 from .models import Enquiry
 
+
 class EnquiryForm(forms.ModelForm):
     class Meta:
         model = Enquiry
-        fields = ['name', 'email', 'message_type', 'subject', 'message'] 
+        fields = ['name', 'email', 'message_type', 'subject', 'message']
         widgets = {
             'message': forms.Textarea(attrs={'rows': 5}),
         }
@@ -20,6 +21,6 @@ class EnquiryForm(forms.ModelForm):
             if field != 'message_type':
                 self.fields[field].widget.attrs['class'] = 'form-control'
             self.fields[field].label = False
-        
+
         self.fields['message_type'].label = "Type of Enquiry:"
         self.fields['message_type'].widget.attrs['class'] = 'form-control'

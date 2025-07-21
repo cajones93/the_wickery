@@ -64,7 +64,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
-    
+
     wax_types = []
     for wax in product.available_wax_types.all():
         wax_types.append({
@@ -80,7 +80,7 @@ def product_detail(request, product_id):
             'friendly_name': size.friendly_name,
             'price_modifier': size.price_modifier,
         })
-    
+
     context = {
         'product': product,
         'wax_types': wax_types,
@@ -88,6 +88,7 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
 
 @login_required
 def add_product(request):
@@ -114,6 +115,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -143,6 +145,7 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_product(request, product_id):

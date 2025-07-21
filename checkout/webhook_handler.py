@@ -128,22 +128,21 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
-                
+
                     product = Product.objects.get(id=item_id)
-                    
-                    if isinstance(item_data, dict) and 'items_by_options' in item_data:    
+
+                    if isinstance(item_data, dict) and 'items_by_options' in item_data:
                         for options_key, quantity in item_data['items_by_options'].items():
-                            
+
                             selected_size_obj = None
                             selected_scent_obj = None
                             selected_wax_type_obj = None
                             wax_multiplier = None
                             size_multiplier = None
 
-                            
                             if options_key != 'no_options':
                                 parts = options_key.split('_')
-                                
+
                                 for i in range(len(parts)):
                                     if parts[i] == 'size' and i + 1 < len(parts):
                                         size_pk = parts[i+1]
@@ -156,9 +155,9 @@ class StripeWH_Handler:
                                         wax_pk = parts[i+1]
                                         selected_wax_type_obj = get_object_or_404(WaxType, pk=wax_pk)
                                         wax_multiplier = selected_wax_type_obj.price_modifier or 1.00
-                                                                    
+
                             lineitem_subtotal = product.price * size_multiplier * wax_multiplier
-                            
+
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -168,7 +167,7 @@ class StripeWH_Handler:
                                 selected_wax_type=selected_wax_type_obj,
                                 lineitem_subtotal=lineitem_subtotal,
                             )
-                            
+
                             order_line_item.save()
             except Exception as e:
                 if order:
@@ -176,12 +175,12 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-                
+
         self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
-    
+
     def handle_payment_intent_payment_failed(self, event):
         """
         Handle the payment_intent.payment_failed webhook from Stripe

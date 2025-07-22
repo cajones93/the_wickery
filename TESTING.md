@@ -331,3 +331,26 @@ Defensive programming was manually tested with the below user acceptance testing
 |                                                | Click Browse Products button                        | User is redirected to the Products page                                             | Pass      |          |
 | **500 page**                                   |                                                     |                                                                                     |           |          |
 |                                                | Unable to test                                      | Interactive content same as 404 page, so Pass expected                              | Pass      |          |
+
+### User Story Testing
+User story text shortened for table layout.
+
+| User Story                                                                                                                | Screenshot                                                            |
+| ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| 1. As a new user, I can sign up with a username and password so that I can create an account.                             | ![screenshot](documentation/testing/user-stories/story1.png)          |
+| 2. As a returning user I can log in securely so that I can access my account and see authorised features.                 | ![screenshot](documentation/testing/user-stories/story2.png)          |
+| 3. As a registered user, I can manage my shipping addresses in my profile.                                                | ![screenshot](documentation/testing/user-stories/story3.png)          |
+| 4. As a customer, I can browse candles by category.                                                                       | ![screenshot](documentation/testing/user-stories/story4.png)          |
+| 5. As a customer, I can search for candles using keywords.                                                                | ![screenshot](documentation/testing/user-stories/story5.png)          |
+| 6. As a customer, I can view high-quality images and detailed descriptions for each candle.                               | ![screenshot](documentation/testing/user-stories/story6.png)          |
+| 7. As a customer, I can select different scent options for a candle product.                                              | ![screenshot](documentation/testing/user-stories/story7.png)          |
+| 8. As a customer, I can select different size options for a candle product.                                               | ![screenshot](documentation/testing/user-stories/story8.png)          |
+| 9. As a customer, I can add candles to my shopping cart.                                                                  | ![screenshot](documentation/testing/user-stories/story9.png)          |
+| 10. As a customer, I can view all items currently in my shopping cart.                                                    | ![screenshot](documentation/testing/user-stories/story10.png)         |
+| 11. As a customer, I can easily adjust quantities or remove items from my shopping cart.                                  | ![screenshot](documentation/testing/user-stories/story11.png)         |
+| 12. As a customer, I can proceed to a secure checkout process.                                                            | ![screenshot](documentation/testing/user-stories/story12.png)         |
+| 13. As a customer, I can pay for my order.                                                                                | ![screenshot](documentation/testing/user-stories/story13.png)         |
+| 14. As a customer, I can receive an order confirmation.                                                                   | ![screenshot](documentation/testing/user-stories/story14.png)         |
+| 15. As a logged-in user I can view order history.                                                                         | ![screenshot](documentation/testing/user-stories/story15.png)         |
+| 16. As a customer I can visit the enquiries page so that I can leave a message for the site owner.                        | ![screenshot](documentation/testing/user-stories/story16.png)         |
+

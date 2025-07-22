@@ -6,10 +6,10 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ('user',)
-        
+
         widgets = {
             'default_phone_number': forms.TextInput(attrs={'type': 'tel', 'pattern': '[0-9]{11}',
-                                            'title': 'Please enter an 11-digit phone number (e.g., 07123456789)'}),
+                                                    'title': 'Please enter an 11-digit phone number (e.g., 07123456789)'}),
         }
 
     def __init__(self, *args, **kwargs):

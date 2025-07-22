@@ -354,3 +354,18 @@ User story text shortened for table layout.
 | 15. As a logged-in user I can view order history.                                                                         | ![screenshot](documentation/testing/user-stories/story15.png)         |
 | 16. As a customer I can visit the enquiries page so that I can leave a message for the site owner.                        | ![screenshot](documentation/testing/user-stories/story16.png)         |
 
+### Solved Bugs
+
+- Options were not correctly passed to the remove bag view resulting in the wrong message being displayed. Data labels in bag.js and adjust/remove from bag views didn't match so matching the data labels fixed it.
+
+- An error was thrown when users left the quantity box empty in product_detail. I added validation to keep quantity value between min and max values in JS.
+
+- An error was thrown when users left the quantity box empty in bag. I added a try, except block to handle null values for quantity when updating bag.
+
+- A user was able to add more than 99 of a product to the bag by adding 99, then adding another from the product page. I added a check to prevent user adding to bag when already at 99 for the product/options combination.
+
+- A user was able to enter text to add more than 99 of a product in the bag. I added a check to ensure user cannot enter more than 99 or NaN values.
+
+- Emails were not being sent, an error TypeError: SMTP.starttls() got an unexpected keyword argument 'keyfile' was generated. I fixed the error by upgrading to Django v4.2.14.
+
+- A super user was able to add has_scents but not select a scent which caused a 500 server error when accessing the site. -> Clearing the session and adding jQuery validation fixed the bug.

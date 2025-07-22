@@ -9,6 +9,10 @@ class OrderForm(forms.ModelForm):
                   'street_address1', 'street_address2',
                   'town_or_city', 'postcode', 'country',
                   'county',)
+        widgets = {
+            'phone_number': forms.TextInput(attrs={'type': 'tel', 'pattern': '[0-9]{11}',
+                                            'title': 'Please enter an 11-digit phone number (e.g., 07123456789)'}),
+        }
 
     def __init__(self, *args, **kwargs):
         """
@@ -29,7 +33,7 @@ class OrderForm(forms.ModelForm):
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
-
+        self.fields['phone_number'].widget.attrs['type'] = 'tel'
         for field_name, field_object in self.fields.items():
             if field_name == 'country':
                 field_object.widget.attrs['aria-label'] = 'Country'

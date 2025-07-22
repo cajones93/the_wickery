@@ -139,17 +139,69 @@ Best Practices is impacted by the stripe cookie which lighthouse doesn't seem to
 
 | Page              | Screenshot                                                                        |
 | --------------    | ----------------------------------------------------------------------------------|
-| Home              | ![screenshot](documentation\testing\lighthouse\lighthouse-home.png)               |
-| Products          | ![screenshot](documentation\testing\lighthouse\lighthouse-products.png)           |
-| Product Detail    | ![screenshot](documentation\testing\lighthouse\lighthouse-product-detail.png)     |
-| Add Product       | ![screenshot](documentation\testing\lighthouse\lighthouse-add-product.png)        |
-| Edit Product      | ![screenshot](documentation\testing\lighthouse\lighthouse-edit-product.png)       |
-| Bag               | ![screenshot](documentation\testing\lighthouse\lighthouse-bag.png)                |
-| Checkout          | ![screenshot](documentation\testing\lighthouse\lighthouse-checkout.png)           |
-| Checkout Success  | ![screenshot](documentation\testing\lighthouse\lighthouse-checkout-success.png)   |
-| Profile           | ![screenshot](documentation\testing\lighthouse\lighthouse-profile.png)            |
-| Enquiries         | ![screenshot](documentation\testing\lighthouse\lighthouse-enquiries.png)          |
-| Privacy Policy    | ![screenshot](documentation\testing\lighthouse\lighthouse-privacy-policy.png)     |
-| Login             | ![screenshot](documentation\testing\lighthouse\lighthouse-login.png)              |
-| Sign Up           | ![screenshot](documentation\testing\lighthouse\lighthouse-sign-up.png)            |
-| Logout            | ![screenshot](documentation\testing\lighthouse\lighthouse-logout.png)             |
+| Home              | ![screenshot](documentation/testing/lighthouse/lighthouse-home.png)               |
+| Products          | ![screenshot](documentation/testing/lighthouse/lighthouse-products.png)           |
+| Product Detail    | ![screenshot](documentation/testing/lighthouse/lighthouse-product-detail.png)     |
+| Add Product       | ![screenshot](documentation/testing/lighthouse/lighthouse-add-product.png)        |
+| Edit Product      | ![screenshot](documentation/testing/lighthouse/lighthouse-edit-product.png)       |
+| Bag               | ![screenshot](documentation/testing/lighthouse/lighthouse-bag.png)                |
+| Checkout          | ![screenshot](documentation/testing/lighthouse/lighthouse-checkout.png)           |
+| Checkout Success  | ![screenshot](documentation/testing/lighthouse/lighthouse-checkout-success.png)   |
+| Profile           | ![screenshot](documentation/testing/lighthouse/lighthouse-profile.png)            |
+| Enquiries         | ![screenshot](documentation/testing/lighthouse/lighthouse-enquiries.png)          |
+| Privacy Policy    | ![screenshot](documentation/testing/lighthouse/lighthouse-privacy-policy.png)     |
+| Login             | ![screenshot](documentation/testing/lighthouse/lighthouse-login.png)              |
+| Sign Up           | ![screenshot](documentation/testing/lighthouse/lighthouse-sign-up.png)            |
+| Logout            | ![screenshot](documentation/testing/lighthouse/lighthouse-logout.png)             |
+
+## MANUAL TESTING
+
+### Responsiveness
+
+Full responsive testing was performed on mobile, tablet, and desktop following devices:
+
+| Page              | Size      | Screenshot                                                                            |
+| -----------       | -------   | ----------------------------------------------------------------------------------    |
+| Home              | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/home-desk.png)             |
+| Home              | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/home-tab.png)               |
+| Home              | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/home-mob.png)               |
+| Products          | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/products-desk.png)         |
+| Products          | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/products-tab.png)           |
+| Products          | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/products-mob.png)           |
+| Product Detail    | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/product-detail-desk.png)   |
+| Product Detail    | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/product-detail-tab.png)     |
+| Product Detail    | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/product-detail-mob.png)     |
+| Add Product       | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/add-product-desk.png)      |
+| Add Product       | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/add-product-tab.png)        |
+| Add Product       | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/add-product-mob.png)        |
+| Edit Product      | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/edit-product-desk.png)     |
+| Edit Product      | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/edit-product-tab.png)       |
+| Edit Product      | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/edit-product-mob.png)       |
+| Checkout          | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/checkout-desk.png)         |
+| Checkout          | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/checkout-tab.png)           |
+| Checkout          | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/checkout-mob.png)           |
+| Checkout Success  | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/checkout-success-desk.png)  |
+| Checkout Success  | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/checkout-success-tab.png)   |
+| Checkout Success  | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/checkout-success-mob.png)   |
+| Enquiries         | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/enquiries-desk.png)        |
+| Enquiries         | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/enquiries-tab.png)          |
+| Enquiries         | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/enquiries-mob.png)          |
+| Privacy Policy    | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/policy-desk.png)           |
+| Privacy Policy    | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/privacy-tab.png)            |
+| Privacy Policy    | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/policy-mob.png)             |
+| Bag               | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/bag-desk.png)              |
+| Bag               | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/bag-tab.png)                |
+| Bag               | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/bag-mob.png)                |
+| Login             | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/login-desk.png)            |
+| Login             | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/login-tab.png)              |
+| Login             | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/login-mob.png)              |
+| Sign Up           | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/sign-up-desk.png)          |
+| Sign Up           | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/sign-up-tab.png)            |
+| Sign Up           | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/sign-up-mob.png)            |
+| Logout            | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/logout-desk.png)           |
+| Logout            | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/logout-tab.png)             |
+| Logout            | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/logout-mob.png)             |
+| 404               | Desktop   | ![screenshot](documentation/testing/responsiveness/desktop/404-desk.png)              |
+| 404               | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/404-tab.png)                |
+| 404               | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/404-mob.png)                |
+

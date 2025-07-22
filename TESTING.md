@@ -280,7 +280,7 @@ Defensive programming was manually tested with the below user acceptance testing
 |                                                | Access through successful checkout                  | Correct order information is displayed, email is sent to entered email address      | Pass      |          |
 |                                                | Click Back to Products button                       | Redirection to Products page                                                        | Pass      |          |
 | **Add Product page**                           |                                                     |                                                                                     |           |          |
-|                                                | Add product with valid information                  | Product is created successfully but image not added                                 | Failed    |          |
+|                                                | Add product with valid information                  | Product is created successfully                                                     | Pass      |          |
 |                                                | Try to add product with missing available scents    | Error message is displayed                                                          | Pass      |          |
 |                                                | Try to add product with missing available sizes     | Error message is displayed                                                          | Pass      |          |
 |                                                | Try to add product with missing available wax       | Error message is displayed                                                          | Pass      |          |
@@ -295,7 +295,6 @@ Defensive programming was manually tested with the below user acceptance testing
 |                                                | Try to update product with missing available wax    | Error message is displayed                                                          | Pass      |          |
 |                                                | Try to update product with invalid price            | Error message is displayed                                                          | Pass      |          |
 |                                                | Try to update product with no rating                | Product created successfully, rating is not displayed on product page               | Pass      |          |
-
 | **Profile page**                               |                                                     |                                                                                     |           |          |
 |                                                | Account with order history                          | Order history is present                                                            | Pass      |          |
 |                                                | Account without order history                       | Order history is empty                                                              | Pass      |          |

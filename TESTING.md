@@ -158,7 +158,7 @@ Best Practices is impacted by the stripe cookie which lighthouse doesn't seem to
 
 ### Responsiveness
 
-Full responsive testing was performed on mobile, tablet, and desktop following devices:
+Full responsive testing was performed on mobile (412 x 869), tablet (768x1024), and desktop (1920х1080).
 
 | Page              | Size      | Screenshot                                                                            |
 | -----------       | -------   | ----------------------------------------------------------------------------------    |
@@ -205,3 +205,130 @@ Full responsive testing was performed on mobile, tablet, and desktop following d
 | 404               | Tablet    | ![screenshot](documentation/testing/responsiveness/tablet/404-tab.png)                |
 | 404               | Mobile    | ![screenshot](documentation/testing/responsiveness/mobile/404-mob.png)                |
 
+
+### Defensive Programming
+
+Defensive programming was manually tested with the below user acceptance testing:
+
+| Page                                           | User Action                                         | Expected Result                                                                     | Pass/Fail | Comments |
+| ---------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------- | --------- | -------- |
+| **Navigation bar**                             |                                                     |                                                                                     |           |          |
+|                                                | Click on Logo                                       | Redirection to Home page                                                            | Pass      |          |
+|                                                | Click on All Products in navbar                     | Dropdown menu opens                                                                 | Pass      |          |
+|                                                | Click on All products dropdown items                | Redirection to Product page with chosen sorting applied                             | Pass      |          |
+|                                                | Click on navbar categories                          | Redirection to Products page with chosen category selected                          | Pass      |          |
+|                                                | Click on Enquiries                                  | Redirection to Enquiries page                                                       | Pass      |          |
+|                                                | Click on My Account (not logged in)                 | Register and Login shown in dropdown                                                | Pass      |          |
+|                                                | Click on Shopping bag                               | Redirection to Bag page                                                             | Pass      |          |
+|                                                | Click on Register                                   | Redirection Sign Up page                                                            | Pass      |          |
+|                                                | Click on Login                                      | Redirection Login page                                                              | Pass      |          |
+|                                                | Click on My Account (logged in)                     | Product management, My Profile and Logout options displayed in dropdown             | Pass      |          |
+|                                                | Click on Product Management                         | Redirection Add Product page                                                        | Pass      |          |
+|                                                | Click on My Profile                                 | Redirection Profile page                                                            | Pass      |          |
+|                                                | Click on Logout                                     | Redirection Logout page                                                             | Pass      |          |
+|                                                | Enter valid search terms and click search icon      | Products page containing search terms in title or description shown                 | Pass      |          |
+|                                                | Enter invalid search terms and click search icon    | Products page showing 0 products found for (search terms)                           | Pass      |          |
+| **Footer**                                     |                                                     |                                                                                     |           |          |
+|                                                | Click on each social media icon                     | Redirection to each social media website                                            | Pass      |          |
+|                                                | Click on Products link                              | Redirection Products page                                                           | Pass      |          |
+|                                                | Click on Contact Us                                 | Redirection Enquiries page                                                          | Pass      |          |
+|                                                | Click on Privacy Policy                             | Redirection Privacy Policy page                                                     | Pass      |          |
+| **Home Page**                                  |                                                     |                                                                                     |           |          |
+|                                                | Click on Shop Now button                            | Redirection Products page                                                           | Pass      |          |
+| **Products Page**                              |                                                     |                                                                                     |           |          |
+|                                                | Click a category in navbar                          | Correct category filter applied to products                                         | Pass      |          |
+|                                                | Click on selected category in sidebar               | Category filter is removed                                                          | Pass      |          |
+|                                                | Select an option from Sort By in sidebar            | Products are sorted by the selected option                                          | Pass      |          |
+|                                                | Click on a product image                            | Redirection to clicked image's Product Detail page                                  | Pass      |          |
+|                                                | (As superuser) Click on edit under product rating   | Redirection to Edit Product page                                                    | Pass      |          |
+|                                                | (As superuser) Click on delete under product rating | Product is deleted                                                                  | Pass      |          |
+|                                                | Click on category above product rating              | Clicked category filter is applied to page                                          | Pass      |          |
+| **Product-detail Page**                        |                                                     |                                                                                     |           |          |
+|                                                | Product with no sizes available                     | Size options are not displayed                                                      | Pass      |          |
+|                                                | Product with no scents available                    | Scent options are not displayed                                                     | Pass      |          |
+|                                                | Change size/scent/wax options                       | Total price is updated correctly                                                    | Pass      |          |
+|                                                | Adjust quantity                                     | Total price is updated correctly                                                    | Pass      |          |
+|                                                | Try to click quantity "-" button at 1 quantity      | Cannot click button                                                                 | Pass      |          |
+|                                                | Try to click quantity "+" button at 99 quantity     | Cannot click button                                                                 | Pass      |          |
+|                                                | Try to enter 0 for quantity                         | Minimum quantity error message displayed and quantity set to 1                      | Pass      |          |
+|                                                | Try to enter 99999999 for quantity                  | Maximum quantity error message displayed and quantity set to 99                     | Pass      |          |
+|                                                | Try to enter asdf for quantity                      | Unable to type letters                                                              | Pass      |          |
+|                                                | Try to add to bag when bag already has 99 of option | Error message is displayed and remains at 99 in bag                                 | Pass      |          |
+|                                                | Click add to bag with empty bag                     | Product/Options added to bag                                                        | Pass      |          |
+|                                                | Add same product with different options to bag      | Separate entry created in bag with correct options                                  | Pass      |          |
+|                                                | Click Keep Shopping button                          | Redirection to Products page                                                        | Pass      |          |
+|                                                | (As superuser) Click on edit under product rating   | Redirection to Edit Product page                                                    | Pass      |          |
+|                                                | (As superuser) Click on delete under product rating | Product is deleted                                                                  | Pass      |          |
+| **Bag Page**                                   |                                                     |                                                                                     |           |          |
+|                                                | Try to click quantity "+" button at 99 quantity     | Cannot go over 99                                                                   | Pass      |          |
+|                                                | Try to click quantity "-" button at 1 quantity      | Cannot go below 1                                                                   | Pass      |          |
+|                                                | Type 0 in quantity and click update                 | Product is removed from bag                                                         | Pass      |          |
+|                                                | Type valid quantity and click update                | Quantity updated to entered value, prices updated correctly                         | Pass      |          |
+|                                                | Click remove                                        | Product is removed from bag                                                         | Pass      |          |
+|                                                | Click Keep Shopping button                          | Redirection to Products page                                                        | Pass      |          |
+|                                                | Click Secure Checkout button                        | Redirection to Checkout Success page                                                | Pass      |          |
+| **Checkout Page**                              |                                                     |                                                                                     |           |          |
+|                                                | Try to click complete order with missing info       | Error message is displayed, cannot checkout                                         | Pass      |          |
+|                                                | Try to click complete order with valid info         | Redirection to Checkout Success page, email sent                                    | Pass      |          |
+|                                                | Try to enter letters in phone number field          | Allowed to complete order                                                           | Failed    |          |
+|                                                | Click Adjust Bag button                             | Redirection to Bag page                                                             | Pass      |          |
+|                                                | Checkout with save info checkbox checked            | Profile default info is updated                                                     | Pass      |          |
+|                                                | Checkout without save info checkbox checked         | Profile default info is still updated                                               | Failed    |          |
+| **Checkout Success Page**                      |                                                     |                                                                                     |           |          |
+|                                                | Access page through "my profile"                    | Back to Profile button is shown                                                     | Pass      |          |
+|                                                | Click Back to Profile button                        | Redirection to Profile page                                                         | Pass      |          |
+|                                                | Access through successful checkout                  | Correct order information is displayed, email is sent to entered email address      | Pass      |          |
+|                                                | Click Back to Products button                       | Redirection to Products page                                                        | Pass      |          |
+| **Add Product page**                           |                                                     |                                                                                     |           |          |
+|                                                | Add product with valid information                  | Product is created successfully but image not added                                 | Failed    |          |
+|                                                | Try to add product with missing available scents    | Error message is displayed                                                          | Pass      |          |
+|                                                | Try to add product with missing available sizes     | Error message is displayed                                                          | Pass      |          |
+|                                                | Try to add product with missing available wax       | Error message is displayed                                                          | Pass      |          |
+|                                                | Try to add product with invalid price               | Error message is displayed                                                          | Pass      |          |
+|                                                | Try to add product with no rating                   | Product created successfully, rating is not displayed on product page               | Pass      |          |
+| **Edit Product page**                          |                                                     |                                                                                     |           |          |
+|                                                | Click edit on a product                             | Information is automatically filled                                                 | Pass      |          |
+|                                                | Click cancel button                                 | Product is not updated                                                              | Pass      |          |
+|                                                | Update product with valid information               | Product is updated successfully                                                     | Pass      |          |
+|                                                | Try to update product with missing available scents | Error message is displayed                                                          | Pass      |          |
+|                                                | Try to update product with missing available sizes  | Error message is displayed                                                          | Pass      |          |
+|                                                | Try to update product with missing available wax    | Error message is displayed                                                          | Pass      |          |
+|                                                | Try to update product with invalid price            | Error message is displayed                                                          | Pass      |          |
+|                                                | Try to update product with no rating                | Product created successfully, rating is not displayed on product page               | Pass      |          |
+
+| **Profile page**                               |                                                     |                                                                                     |           |          |
+|                                                | Account with order history                          | Order history is present                                                            | Pass      |          |
+|                                                | Account without order history                       | Order history is empty                                                              | Pass      |          |
+|                                                | Account with saved default details                  | Details are automatically filled                                                    | Pass      |          |
+|                                                | Account without saved default details               | Details are empty                                                                   | Pass      |          |
+|                                                | Click Update Information button                     | Details are saved                                                                   | Pass      |          |
+| **Enquiries page**                             |                                                     |                                                                                     |           |          |
+|                                                | Click send message with missing required info       | Error messages are displayed                                                        | Pass      |          |
+|                                                | Click send message with valid info                  | Form successfully submitted                                                         | Pass      |          |
+| **Logout page**                                |                                                     |                                                                                     |           |          |
+|                                                | Click Sign Out button                               | User is logged out and redirected to index page, notification displayed             | Pass      |          |
+|                                                | Click cancel button                                 | Redirected to Index page and user stays logged in                                   | Pass      |          |
+| **Login page**                                 |                                                     |                                                                                     |           |          |
+|                                                | Leave username blank and try to Submit              | A required message popped up                                                        | Pass      |          |
+|                                                | Leave password blank and try to Submit              | A required message popped up                                                        | Pass      |          |
+|                                                | Enter valid username and password and try to Submit | Logged in successfully and notification displayed                                   | Pass      |          |
+|                                                | Enter valid email and password and try to Submit    | Logged in successfully and notification displayed                                   | Pass      |          |
+| **Sign Up page**                               |                                                     |                                                                                     |           |          |
+|                                                | Leave email blank and try to Submit                 | A required message popped up                                                        | Pass      |          |
+|                                                | Leave username blank and try to Submit              | A required message popped up                                                        | Pass      |          |
+|                                                | Leave password blank and try to Submit              | A required message popped up                                                        | Pass      |          |
+|                                                | Leave password (again) blank and try to Submit      | A required message popped up                                                        | Pass      |          |
+|                                                | Enter invalid email address                         | A valid email reminder message popped up                                            | Pass      |          |
+|                                                | Enter a username that is too short                  | A valid username message popped up                                                  | Pass      |          |
+|                                                | Enter a password similar to the username            | An error message is displayed                                                       | Pass      |          |
+|                                                | Enter a common password                             | An error message is displayed                                                       | Pass      |          |
+|                                                | Enter passwords that do not match                   | An error message is displayed                                                       | Pass      |          |
+|                                                | Enter a password containing only numbers            | An error message is displayed                                                       | Pass      |          |
+|                                                | Enter a passwords that is less than 8 characters    | An error message is displayed                                                       | Pass      |          |
+|                                                | Try to sign up with an existing user/email          | An error message is displayed                                                       | Pass      |          |
+|                                                | Enter valid information                             | Successful, user redirected to Home page and logged in                              | Pass      |          |
+| **404 page**                                   |                                                     |                                                                                     |           |          |
+|                                                | Click Back to Homepage button                       | User is redirected to the Home page                                                 | Pass      |          |
+|                                                | Click Browse Products button                        | User is redirected to the Products page                                             | Pass      |          |
+| **500 page**                                   |                                                     |                                                                                     |           |          |
+|                                                | Unable to test                                      | Interactive content same as 404 page, so Pass expected                              | Pass      |          |

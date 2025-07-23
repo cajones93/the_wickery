@@ -297,7 +297,7 @@ a.category-badge > span.badge:hover {
 }
 
 .qty_input {
-    max-width: 60px; /* Adjust width of the quantity input field */
+    max-width: 60px;
     text-align: center;
 }
 

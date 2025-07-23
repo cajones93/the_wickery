@@ -20,16 +20,17 @@ Return to the [README.md](README.md) file.
 
 ### HTML
 
-The recommended [HTML W3C Validator](https://validator.w3.org) was used to validate all HTML files.
-The 404 page was tested by direct input because the validator received a 404 error.
+The recommended [HTML W3C Validator](https://validator.w3.org) was used to validate all HTML files.  
+Pages were validated by visiting each page and "View Page Source".  
+The **Add Product** and **Edit Product** pages had an extra id attribute when viewing with this method, but the extra id attribute is not present in Chrome devtools or in vscode so I have excluded this from the table below.
 
 | Page             | Pass / Error    | Notes          |
 | ---------------- | --------------- |--------------- |
 | Home             | Pass: No Errors |                |
 | Products         | Pass: No Errors |                |
 | Product-Detail   | Pass: No Errors |                |
-| Add Product      | Error           | "Duplicate attribute id" from page source, but not shown in devtools html or vscode | 
-| Edit Product     | Error           | "The value of the for attribute of the label element must be the ID of a non-hidden form control" Label is only shown when form control is shown. |
+| Add Product      | Pass: No Errors |                | 
+| Edit Product     | Pass: No Errors |                |
 | Profile          | Pass: No Errors |
 | Enquiry          | Pass: No Errors |
 | Privacy Policy   | Pass: No Errors |

@@ -331,7 +331,8 @@ Defensive programming was manually tested with the below user acceptance testing
 |                                                | Click Back to Homepage button                       | User is redirected to the Home page                                                 | Pass      |          |
 |                                                | Click Browse Products button                        | User is redirected to the Products page                                             | Pass      |          |
 | **500 page**                                   |                                                     |                                                                                     |           |          |
-|                                                | Unable to test                                      | Interactive content same as 404 page, so Pass expected                              | Pass      |          |
+|                                                | Click Back to Homepage button                       | User is redirected to the Home page                                                 | Pass      |          |
+|                                                | Click Browse Products button                        | User is redirected to the Products page                                             | Pass      |          |
 
 ### User Story Testing
 User story text shortened for table layout.

@@ -5,7 +5,7 @@ from .models import Enquiry
 class EnquiryForm(forms.ModelForm):
     class Meta:
         model = Enquiry
-        fields = ['name', 'email', 'message_type', 'subject', 'message']
+        fields = ['name', 'email', 'message_type', 'order_number', 'subject', 'message']
         widgets = {
             'message': forms.Textarea(attrs={'rows': 5}),
         }
@@ -15,6 +15,7 @@ class EnquiryForm(forms.ModelForm):
         self.fields['name'].widget.attrs['placeholder'] = 'Your Name *'
         self.fields['email'].widget.attrs['placeholder'] = 'Your Email *'
         self.fields['subject'].widget.attrs['placeholder'] = 'Subject (Optional)'
+        self.fields['order_number'].widget.attrs['placeholder'] = 'Order Number (Optional)'
         self.fields['message'].widget.attrs['placeholder'] = 'Your Message *'
 
         for field in self.fields:

@@ -13,6 +13,7 @@ class Enquiry(models.Model):
         ('other', 'Other'),
     )
     message_type = models.CharField(max_length=20, choices=MESSAGE_TYPES, default='enquiry')
+    order_number = models.CharField(max_length=32, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     is_read = models.BooleanField(default=False)
 

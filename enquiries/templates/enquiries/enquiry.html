@@ -33,3 +33,44 @@
         </div>
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }} {# This is important to include parent block's JS, like toast messages #}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageTypeSelect = document.getElementById('id_message_type');
+        const orderNumberContainer = document.getElementById('order-number-container');
+        const orderNumberField = document.getElementById('id_order_number'); // Get the actual input field
+
+        // Function to toggle visibility and required status
+        function toggleOrderNumberField() {
+            const selectedValue = messageTypeSelect.value;
+            // The value 'problem' comes from your EnquiryForm.MESSAGE_TYPES
+            // You'll need to check the exact value for 'Other' if you add one,
+            // or iterate through your choices for 'problem' and 'other' values.
+            // For example, if 'Other' is mapped to 'other' in your form choices:
+            const showField = (selectedValue === 'problem' || selectedValue === 'other');
+
+            if (showField) {
+                $(orderNumberField).slideDown();
+                if (selectedValue ==='problem'){
+                    orderNumberField.setAttribute('required', 'required');
+                    orderNumberField.setAttribute('placeholder', 'Order Number*')
+                }
+                else{
+                    orderNumberField.setAttribute('placeholder', 'Order Number (Optional)')
+                }
+            } else {
+                $(orderNumberField).slideUp();
+                orderNumberField.removeAttribute('required'); // Remove required when hidden
+                orderNumberField.value = '';
+            }
+        }
+
+        toggleOrderNumberField();
+
+        messageTypeSelect.addEventListener('change', toggleOrderNumberField);
+    });
+
+</script>
+{% endblock %}

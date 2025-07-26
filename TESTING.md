@@ -369,4 +369,6 @@ User story text shortened for table layout.
 
 - Emails were not being sent, an error TypeError: SMTP.starttls() got an unexpected keyword argument 'keyfile' was generated. I fixed the error by upgrading to Django v4.2.14.
 
-- A super user was able to add has_scents but not select a scent which caused a 500 server error when accessing the site. -> Clearing the session and adding jQuery validation fixed the bug.
+- A super user was able to add has_scents but not select a scent which caused a 500 server error when accessing the site. Clearing the session and adding jQuery validation fixed the bug.
+
+- 500 error was triggered when logging into the site "ProgrammingError at /accounts/login/" on heroku but not in vscode. I had to run a migrate command using the Heroku CLI.

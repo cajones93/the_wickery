@@ -17,7 +17,6 @@ class EnquiryForm(forms.ModelForm):
         self.fields['subject'].widget.attrs['placeholder'] = 'Subject (Optional)'
         self.fields['order_number'].widget.attrs['placeholder'] = 'Order Number (Optional)'
         self.fields['message'].widget.attrs['placeholder'] = 'Your Message *'
-
         for field in self.fields:
             if field != 'message_type':
                 self.fields[field].widget.attrs['class'] = 'form-control'

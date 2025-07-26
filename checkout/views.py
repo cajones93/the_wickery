@@ -176,9 +176,19 @@ def checkout_success(request, order_number):
         order.user_profile = profile
         order.save()
 
+        if order.full_name:
+            full_name = order.full_name.split(' ')
+            first_name = full_name[0]
+            last_name = full_name[1]
+        else:
+            first_name = "Hidden"
+            last_name = "Hidden"
+
         # Save the user's info
         if save_info:
             profile_data = {
+                'default_first_name': first_name,
+                'default_last_name': last_name,
                 'default_phone_number': order.phone_number,
                 'default_country': order.country,
                 'default_postcode': order.postcode,

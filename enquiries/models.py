@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Enquiry(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
+    name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
     subject = models.CharField(max_length=200, blank=True, null=True)
-    message = models.TextField()
+    message = models.TextField(max_length=500, blank=False, null=False)
     MESSAGE_TYPES = (
         ('enquiry', 'General Enquiry'),
         ('bulk', 'Bulk Order Enquiry'),

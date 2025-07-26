@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib import messages
 
 from .forms import EnquiryForm
+from .models import Enquiry
 from profiles.models import UserProfile # Make sure this import is correct and UserProfile is defined
 
 def enquiry(request):
@@ -17,17 +18,25 @@ def enquiry(request):
             messages.error(request, 'Please correct the errors in the form.')
     else:
         form = EnquiryForm()
+        initial_data = {}
+
+        # Check for message type and order number in URL
+        if 'message_type' in request.GET and request.GET['message_type'] in [choice[0] for choice in Enquiry.MESSAGE_TYPES]:
+            initial_data['message_type'] = request.GET['message_type']
+
+        if 'order_number' in request.GET:
+            initial_data['order_number'] = request.GET['order_number']
 
         # If user is logged in, autofill name and email
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
-                form = EnquiryForm(initial={
-                    'name': profile.user.get_full_name(),
-                    'email': profile.user.email,
-                })
+                initial_data['name'] = profile.user.get_full_name()
+                initial_data['email'] = profile.user.email
             except UserProfile.DoesNotExist:
-                form = EnquiryForm()
+                pass
+
+        form = EnquiryForm(initial=initial_data)
 
     context = {
         'form': form,

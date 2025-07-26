@@ -108,7 +108,7 @@
                             <form method="GET" action="{% url 'products' %}">
                                 {% csrf_token %}
                                 <div class="input-group w-100">
-                                    <input class="form-control border" type="text" name="q" placeholder="Search...">
+                                    <input class="form-control border" type="text" name="q" placeholder="Search..." maxlength="50">
                                     <div class="input-group-append">
                                         <button class="form-control btn search-btn border" type="submit">
                                             <span class="icon">

@@ -45,8 +45,13 @@ def all_products(request):
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
+        MAX_SEARCH_QUERY_LENGTH = 50
+        if len(query) > MAX_SEARCH_QUERY_LENGTH:
+            messages.error(request, f"Search query too long. Max {MAX_SEARCH_QUERY_LENGTH} characters allowed.")
+            return redirect(reverse('products'))
+
+        queries = Q(name__icontains=query) | Q(description__icontains=query)
+        products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
 

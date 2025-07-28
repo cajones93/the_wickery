@@ -40,7 +40,7 @@ class WaxType(models.Model):
 
     name = models.CharField(max_length=100, unique=True)
     friendly_name = models.CharField(max_length=100, null=True, blank=True)
-    price_modifier = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0.00,)
+    price_modifier = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=1.00,)
 
     def __str__(self):
         return self.name
@@ -55,7 +55,7 @@ class CandleSize(models.Model):
     """
     name = models.CharField(max_length=100, unique=True)
     friendly_name = models.CharField(max_length=100, null=True, blank=True)
-    price_modifier = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0.00,)
+    price_modifier = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=1.00,)
 
     def __str__(self):
         return self.name
@@ -72,7 +72,7 @@ class Product(models.Model):
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
     has_scents = models.BooleanField(default=False, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, validators=[
+    rating = models.DecimalField(max_digits=1, null=True, blank=True, validators=[
             MinValueValidator(1, message='Rating must be at least 1.'),
             MaxValueValidator(5, message='Rating cannot exceed 5.')
         ])

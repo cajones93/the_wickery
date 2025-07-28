@@ -6,6 +6,7 @@ from .forms import EnquiryForm
 from .models import Enquiry
 from profiles.models import UserProfile # Make sure this import is correct and UserProfile is defined
 
+
 def enquiry(request):
     if request.method == 'POST':
         form = EnquiryForm(request.POST)

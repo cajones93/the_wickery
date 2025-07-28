@@ -31,7 +31,8 @@ def enquiry(request):
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
-                initial_data['name'] = profile.user.get_full_name()
+                full_name = f"{profile.default_first_name or ''} {profile.default_last_name or ''}".strip()
+                initial_data['name'] = full_name
                 initial_data['email'] = profile.user.email
             except UserProfile.DoesNotExist:
                 pass

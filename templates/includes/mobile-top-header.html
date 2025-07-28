@@ -1,70 +1,70 @@
 {% load static %}
-<ul class="my-0 p-0 d-flex justify-content-between">
-<li class="list-inline-item">
-    <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center nav-icon-colour">
-            <div><i class="fas fa-search fa-lg"></i></div>
-            <p class="my-0 font-weight-bold">Search</p>
-        </div>
-    </a>
-    <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
-        <form class="form" method="GET" action="{% url 'products' %}">
-            <div class="input-group w-100">
-                <input class="form-control border" type="text" name="q" placeholder="Search our site">
-                <div class="input-group-append">
-                    <button class="form-control btn search-btn border" type="submit">
-                        <span class="icon">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </button>
-                </div>
+<ul class="my-0 p-0 d-flex flex-grow-1 justify-content-around align-items-center">
+    <li class="list-inline-item">
+        <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="text-center nav-icon-colour">
+                <div><i class="fas fa-search fa-lg"></i></div>
+                <p class="my-0 font-weight-bold">Search</p>
             </div>
-        </form>
-    </div>
-</li>
+        </a>
+        <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+            <form class="form" method="GET" action="{% url 'products' %}">
+                <div class="input-group w-100">
+                    <input class="form-control border" type="text" name="q" placeholder="Search our site">
+                    <div class="input-group-append">
+                        <button class="form-control btn search-btn border" type="submit">
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </li>
 
-<li class="list-inline-item d-none d-sm-inline d-lg-none">
+    <li class="list-inline-item d-none d-sm-inline d-lg-none">
         <a href="{% url 'home' %}" class="nav-link main-logo-link mx-auto">
           <img class="logo-main-sm" src="{% static 'images/logo-sm.png' %}" alt="The Wickery TW Logo">
         </a>
-</li>
+    </li>
 
-<li class="list-inline-item dropdown">
-    <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options-mob" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center nav-icon-colour">
-            <div><i class="fas fa-id-badge fa-lg"></i></div>
-            <p class="my-0 font-weight-bold">My Account</p>
-        </div>
-    </a>
-    <div class="dropdown-menu border-0" aria-labelledby="user-options-mob">
-        {% if request.user.is_authenticated %}
+    <li class="list-inline-item dropdown">
+        <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options-mob" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="text-center nav-icon-colour">
+                <div><i class="fas fa-id-badge fa-lg"></i></div>
+                <p class="my-0 font-weight-bold">My Account</p>
+            </div>
+        </a>
+        <div class="dropdown-menu border-0" aria-labelledby="user-options-mob">
             {% if request.user.is_authenticated %}
-            <p class="my-0 dropdown-item pl-1">Logged in as: {{request.user|truncatechars:5}}</p>                                            
-            {% endif %}
-            {% if request.user.is_superuser %}
-                <a href="{% url 'add_product' %}" class="dropdown-item pl-1">Product Management</a>
-            {% endif %}
-            <a href="{% url 'profile' %}" class="dropdown-item pl-1">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item pl-1">Logout</a>
-        {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item pl-1">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item pl-1">Login</a>
-        {% endif %}
-    </div>
-</li>
-
-<li class="list-inline-item">
-    <a class="text-primary font-weight-bold nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
-        <div class="text-center nav-icon-colour">
-            <div><i class="fas fa-briefcase fa-lg"></i></div>
-            <p class="my-0">
-                {% if grand_total %}
-                    £{{ grand_total|floatformat:2 }}
-                {% else %}
-                    Empty
+                {% if request.user.is_authenticated %}
+                <p class="my-0 dropdown-item pl-1">Logged in as: {{request.user|truncatechars:5}}</p>                                       
                 {% endif %}
-            </p>
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'add_product' %}" class="dropdown-item pl-1">Product Management</a>
+                {% endif %}
+                <a href="{% url 'profile' %}" class="dropdown-item pl-1">My Profile</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item pl-1">Logout</a>
+            {% else %}
+                <a href="{% url 'account_signup' %}" class="dropdown-item pl-1">Register</a>
+                <a href="{% url 'account_login' %}" class="dropdown-item pl-1">Login</a>
+            {% endif %}
         </div>
-    </a>
-</li>
+    </li>
+
+    <li class="list-inline-item">
+        <a class="text-primary font-weight-bold nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
+            <div class="text-center nav-icon-colour">
+                <div><i class="fas fa-briefcase fa-lg"></i></div>
+                <p class="my-0">
+                    {% if grand_total %}
+                        £{{ grand_total|floatformat:2 }}
+                    {% else %}
+                        Empty
+                    {% endif %}
+                </p>
+            </div>
+        </a>
+    </li>
 </ul>
